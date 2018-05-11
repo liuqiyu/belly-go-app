@@ -244,6 +244,7 @@ export default {
             -webkit-line-clamp:2;
             word-wrap:break-word;
             word-break:break-all;
+            height: 0.32rem;
           }
         }
       }
