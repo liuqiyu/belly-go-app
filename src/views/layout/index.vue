@@ -16,9 +16,16 @@ import Atopbar from './../../components/A-topbar';
 import Anavbar from './../../components/A-navbar';
 
 export default {
+  data() {
+    return {
+      scroll: null,
+    };
+  },
   mounted() {
-    let wrapper = document.querySelector('.content-wrapper');
-    let scroll = new BScroll(wrapper, {});
+    const wrapper = document.querySelector('.content-wrapper');
+    this.scroll = new BScroll(wrapper, {
+      click: true,
+    });
   },
   components: {
     Atopbar,

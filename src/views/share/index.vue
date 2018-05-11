@@ -1,7 +1,7 @@
 <template>
   <div class="share">
     <div class="share-list">
-      <div class="share-item">
+      <div class="share-item" v-for="(item, index) in dataList" :key="index">
         <div class="share-header">
           <div class="s-logo">
             <span></span>
@@ -9,8 +9,8 @@
           <div class="s-desc-wrapper">
             <div class="s-desc">
               <div class="s-info">
-                <p class="username">Maawin</p>
-                <p class="tag">#fashion#shoose#bag</p>
+                <p class="username">{{item.username}}</p>
+                <p class="tag">{{item.tags}}</p>
               </div>
               <div class="s-other">
                 <span class="share-txt">分享</span>
@@ -33,99 +33,28 @@
               <span class="icon iconfont icon-xin"></span>
               <span class="number">2323</span>
             </div>
-            <div class="discuss">
-              <span class="icon iconfont icon-pinglun"></span>
+            <div class="discuss" >
+              <div class="tooltip" ref="tooltip">
+                <div class="tooltip-box">
+                  <div class="fabulous" @click="fabulous(item, index)">
+                    <span class="icons iconfont icon-zan icon-fabulous" ref="zan"></span>
+                    <span v-if="!item.hasPoint">赞</span>
+                    <span v-else>取消</span>
+                  </div>
+                  <div class="commentary">
+                    <span class="icons iconfont icon-pinglun"></span>
+                    <span>评论</span>
+                  </div>
+                </div>
+              </div>
+              <span class="icon iconfont icon-pinglun" @click="showDiscuss(index)"></span>
             </div>
           </div>
           <div class="describe">
             <p>
-              ZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundi
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="share-item">
-        <div class="share-header">
-          <div class="s-logo">
-            <span></span>
-          </div>
-          <div class="s-desc-wrapper">
-            <div class="s-desc">
-              <div class="s-info">
-                <p class="username">Maawin</p>
-                <p class="tag">#fashion#shoose#bag</p>
-              </div>
-              <div class="s-other">
-                <span class="share-txt">分享</span>
-                <span class="icon iconfont icon-sandian"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="share-img-list clearfix">
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-        </div>
-        <div class="share-footer">
-          <div class="comment">
-            <div class="give-the-thumbs">
-              <span class="icon iconfont icon-xin"></span>
-              <span class="number">2323</span>
-            </div>
-            <div class="discuss">
-              <span class="icon iconfont icon-pinglun"></span>
-            </div>
-          </div>
-          <div class="describe">
-            <p>
-              ZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundi
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="share-item">
-        <div class="share-header">
-          <div class="s-logo">
-            <span></span>
-          </div>
-          <div class="s-desc-wrapper">
-            <div class="s-desc">
-              <div class="s-info">
-                <p class="username">Maawin</p>
-                <p class="tag">#fashion#shoose#bag</p>
-              </div>
-              <div class="s-other">
-                <span class="share-txt">分享</span>
-                <span class="icon iconfont icon-sandian"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="share-img-list clearfix">
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-        </div>
-        <div class="share-footer">
-          <div class="comment">
-            <div class="give-the-thumbs">
-              <span class="icon iconfont icon-xin"></span>
-              <span class="number">2323</span>
-            </div>
-            <div class="discuss">
-              <span class="icon iconfont icon-pinglun"></span>
-            </div>
-          </div>
-          <div class="describe">
-            <p>
-              ZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundi
+              ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
+              undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
+              angchundiZhangchundiZhangchundiZhangchundi
             </p>
           </div>
         </div>
@@ -135,7 +64,54 @@
 </template>
 
 <script>
+import { hasClass } from './../../utils/utils';
+
 export default {
+  data() {
+    return {
+      dataList: [
+        {
+          username: 'Maawin1',
+          tags: '#fashion#shoose#bag',
+          pointNumber: 2200,
+          hasPoint: false,
+        },
+        {
+          username: 'Maawin2',
+          tags: '#fashion#shoose#bag',
+          pointNumber: 2200,
+          hasPoint: true,
+        },
+      ],
+    };
+  },
+  methods: {
+    // 展开tooltip
+    showDiscuss(index) {
+      const $tooltip = this.$refs.tooltip;
+      if (hasClass($tooltip[index], 'show')) {
+        $tooltip[index].classList.remove('show');
+      } else {
+        $tooltip[index].classList.add('show');
+      }
+    },
+
+    // 点赞效果
+    fabulous(item, index) {
+      const $zan = this.$refs.zan;
+      const $tooltip = this.$refs.tooltip;
+      if (item.hasPoint) {
+        this.dataList[index].hasPoint = false;
+      } else {
+        this.dataList[index].hasPoint = true;
+      }
+      $zan[index].classList.add('action');
+      setTimeout(() => {
+        $zan[index].classList.remove('action');
+        $tooltip[index].classList.remove('show');
+      }, 500);
+    },
+  },
 };
 </script>
 
@@ -209,7 +185,7 @@ export default {
 
       .share-footer {
         .comment {
-          margin-top: 0.05rem;
+          padding: 0.05rem 0;
           display: flex;
           justify-content: space-between;
           overflow: hidden;
@@ -226,6 +202,41 @@ export default {
             }
           }
           .discuss {
+            position: relative;
+            .tooltip {
+              position: absolute;
+              top: -0.01rem;
+              right: 0.26rem;
+              border-radius: 3px;
+              height: 0.25rem;
+              width: 0;
+              background: rgba(0,0,0,0.8);
+              color: #fff;
+              overflow: hidden;
+              line-height: 0.25rem;
+              transition: width 0.5s;
+              -webkit-transition: width 0.5s;
+              .tooltip-box {
+                width: 1.4rem;
+                padding: 0 0.1rem;
+                display: flex;
+                justify-content: space-between;
+                .icons {
+                  font-size: 0.14rem;
+                  margin-right: 0.03rem;
+                }
+                .icon-fabulous {
+                  display: inline-block;
+                  &.action {
+                    animation: myfirst 0.5s;
+                    -webkit-animation: myfirst 0.5s; /* Safari 与 Chrome */
+                  }
+                }
+              }
+              &.show {
+                width: 1.4rem;
+              }
+            }
             .icon {
               font-size: 0.2rem;
               color: #999;
@@ -234,18 +245,43 @@ export default {
           }
         }
         .describe {
-          margin-top: 0.06rem;
           p {
             color: #090909;
             word-break: break-all;
             text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
+            height: 0.32rem;
             overflow: hidden;
           }
         }
       }
     }
   }
+  @keyframes myfirst
+  {
+    from {
+      -ms-transform:scale(1,1); /* IE 9 */
+      -webkit-transform: scale(1,1); /* Safari */
+      transform: scale(1,1); /* 标准语法 */
+    }
+    to {
+      -ms-transform:scale(1.5,1.5); /* IE 9 */
+      -webkit-transform: scale(1.5,1.5); /* Safari */
+      transform: scale(1.5,1.5); /* 标准语法 */
+    }
+  }
+
+  @-webkit-keyframes myfirst /* Safari 与 Chrome */
+  {
+    from {
+      -ms-transform:scale(1,1); /* IE 9 */
+      -webkit-transform: scale(1,1); /* Safari */
+      transform: scale(1,1); /* 标准语法 */
+    }
+    to {
+      -ms-transform:scale(1.5,1.5); /* IE 9 */
+      -webkit-transform: scale(1.5,1.5); /* Safari */
+      transform: scale(1.5,1.5); /* 标准语法 */
+    }
+  }
+
 </style>
