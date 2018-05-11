@@ -237,22 +237,12 @@ export default {
           margin-top: 0.06rem;
           p {
             color: #090909;
-            overflow:hidden;
-            text-overflow:ellipsis;
-            display:-webkit-box;
-            display: block;
-            -webkit-box-orient:vertical;
-            -webkit-line-clamp:2;
-            word-wrap:break-word;
-            word-break:break-all;
-            height: 0.32rem;
-
-            display: block;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            word-break: break-all;
             text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
           }
         }
       }
