@@ -50,6 +50,7 @@
               <span class="icon iconfont icon-pinglun" @click="showDiscuss(index)"></span>
             </div>
           </div>
+          <input type="text">
           <div class="describe">
             <p>
               ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
