@@ -33,6 +33,7 @@ export default {
     const wrapper = document.querySelector('.content-wrapper');
     this.scroll = new BScroll(wrapper, {
       click: true,
+      scrollX: true,
     });
   },
   components: {
@@ -49,7 +50,7 @@ export default {
       height: 100%;
       padding: 0.45rem 0 0.51rem 0;
       .scroll-wrapper {
-        padding: 0 0.16rem 0.7rem 0.16rem;
+        padding: 0 0 0.7rem 0;
       }
     }
     .criticism {

@@ -4,7 +4,7 @@
       <div class="share-item" v-for="(item, index) in dataList" :key="index">
         <div class="share-header">
           <div class="s-logo">
-            <span></span>
+            <img src="./../../assets/images/portrait.jpg" alt="">
           </div>
           <div class="s-desc-wrapper">
             <div class="s-desc">
@@ -20,12 +20,24 @@
           </div>
         </div>
         <div class="share-img-list clearfix">
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
-          <div class="share-img-item"></div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
         </div>
         <div class="share-footer">
           <div class="comment">
@@ -60,6 +72,17 @@
         </div>
       </div>
     </div>
+    <div class="recommend">
+      <header class="title">Zhangchundi</header>
+      <div class="recommend-box">
+        <div class="recommend-list clearfix" ref="recommendList">
+          <div class="recommend-item"></div>
+          <div class="recommend-item"></div>
+          <div class="recommend-item"></div>
+          <div class="recommend-item"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -67,6 +90,16 @@
 import { hasClass } from './../../utils/utils';
 
 export default {
+  mounted() {
+    const $recommendItem = document.getElementsByClassName('recommend-item');
+    const $recommendList = this.$refs.recommendList;
+    if ($recommendItem.length > 0) {
+      const w = Number($recommendItem[0].clientWidth);
+      const marginRight = Number(window.getComputedStyle($recommendItem[0], null).marginRight.replace('px', ''));
+     $recommendList.style.width =
+       `${(w + marginRight) * $recommendItem.length}px`;
+    }
+  },
   data() {
     return {
       dataList: [
@@ -126,10 +159,11 @@ export default {
 
 <style scoped lang="scss">
   .share {
-    padding: 0.16rem 0;
+    padding: 0.16rem 0 0.31rem 0;
   }
 
   .share-list {
+    padding: 0 0.16rem;
     width: 100%;
     .share-item {
       margin-bottom: 0.3rem;
@@ -142,7 +176,13 @@ export default {
           height: 0.4rem;
           background: #f6f6f6;
           position: relative;
+          overflow: hidden;
+          border-radius: 50%;
           flex: none;
+          img {
+            width: 100%;
+            vertical-align: middle;
+          }
         }
         .s-desc-wrapper {
           padding-left: 0.1rem;
@@ -175,7 +215,6 @@ export default {
           }
         }
       }
-
       .share-img-list {
         margin-top: 0.1rem;
         width: 100%;
@@ -183,15 +222,20 @@ export default {
           width: 1.11rem;
           height: 1.11rem;
           background: #f6f6f6;
+          border-radius: 3px;
+          overflow: hidden;
           float: left;
           margin-right: 0.05rem;
           margin-bottom: 0.05rem;
           &:nth-child(3n) {
             margin-right: 0;
           }
+          img {
+            width: 100%;
+            vertical-align: middle;
+          }
         }
       }
-
       .share-footer {
         .comment {
           padding: 0.05rem 0;
@@ -214,15 +258,15 @@ export default {
             position: relative;
             .tooltip {
               position: absolute;
-              top: -0.01rem;
+              top: -0.05rem;
               right: 0.26rem;
               border-radius: 3px;
-              height: 0.25rem;
+              height: 0.33rem;
               width: 0;
               background: rgba(0,0,0,0.8);
               color: #fff;
               overflow: hidden;
-              line-height: 0.25rem;
+              line-height: 0.33rem;
               transition: width 0.5s;
               -webkit-transition: width 0.5s;
               .tooltip-box {
@@ -291,6 +335,26 @@ export default {
       -ms-transform:scale(1.5,1.5); /* IE 9 */
       -webkit-transform: scale(1.5,1.5); /* Safari */
       transform: scale(1.5,1.5); /* 标准语法 */
+    }
+  }
+
+  .recommend {
+    background: #f0f0f0;
+    padding: 0.16rem;
+    .recommend-box {
+      width: 100%;
+      overflow-x: auto;
+      .recommend-list {
+        .recommend-item {
+          width: 1.3rem;
+          height: 1.71rem;
+          background: red;
+          border-radius: 4px;
+          margin-top: 0.2rem;
+          float: left;
+          margin-right: 0.1rem;
+        }
+      }
     }
   }
 
