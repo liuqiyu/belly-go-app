@@ -20,23 +20,8 @@
           </div>
         </div>
         <div class="share-img-list clearfix">
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
+          <div class="share-img-big">
+            <img src="../../assets/images/big-img.jpg" alt="">
           </div>
         </div>
         <div class="share-footer">
@@ -78,6 +63,7 @@
         <div class="recommend-list clearfix" ref="recommendList"
              :style="{width: listWrapWidth + 'px'}">
           <div class="recommend-item">
+            <span class="delete iconfont icon-delete"></span>
             <div class="photo">
               <img src="./../../assets/images/portrait.jpg" alt="">
             </div>
@@ -99,6 +85,7 @@
             </div>
           </div>
           <div class="recommend-item">
+            <span class="delete iconfont icon-delete"></span>
             <div class="photo">
               <img src="./../../assets/images/portrait.jpg" alt="">
             </div>
@@ -120,6 +107,7 @@
             </div>
           </div>
           <div class="recommend-item">
+            <span class="delete iconfont icon-delete"></span>
             <div class="photo">
               <img src="./../../assets/images/portrait.jpg" alt="">
             </div>
@@ -141,6 +129,51 @@
             </div>
           </div>
           <div class="recommend-item">
+            <span class="delete iconfont icon-delete"></span>
+            <div class="photo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="h2">CEEN.J.K</div>
+            <div class="h3">Liuqiyuaaaaaa</div>
+            <div class="button-wrapper">
+              <button>ZCD</button>
+            </div>
+            <div class="slider clearfix">
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="recommend-item">
+            <span class="delete iconfont icon-delete"></span>
+            <div class="photo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="h2">CEEN.J.K</div>
+            <div class="h3">Liuqiyuaaaaaa</div>
+            <div class="button-wrapper">
+              <button>ZCD</button>
+            </div>
+            <div class="slider clearfix">
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="recommend-item">
+            <span class="delete iconfont icon-delete"></span>
             <div class="photo">
               <img src="./../../assets/images/portrait.jpg" alt="">
             </div>
@@ -509,15 +542,15 @@ export default {
             position: relative;
             .tooltip {
               position: absolute;
-              top: -0.05rem;
+              top: -0.04rem;
               right: 0.26rem;
               border-radius: 3px;
-              height: 0.33rem;
+              height: 0.31rem;
               width: 0;
               background: rgba(0,0,0,0.8);
               color: #fff;
               overflow: hidden;
-              line-height: 0.33rem;
+              line-height: 0.31rem;
               transition: width 0.5s;
               -webkit-transition: width 0.5s;
               .tooltip-box {
@@ -562,6 +595,16 @@ export default {
         margin-bottom: 0;
       }
     }
+    // 大图
+    .share-img-big {
+      width: 100%;
+      height: 3.43rem;
+      overflow: hidden;
+      img {
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
   }
 
   @keyframes myfirst
@@ -603,6 +646,7 @@ export default {
       .recommend-list {
         margin-top: 0.15rem;
         .recommend-item {
+          position: relative;
           width: 1.3rem;
           border-radius: 4px;
           float: left;
@@ -611,6 +655,16 @@ export default {
           text-align: center;
           padding: 0.06rem;
           box-shadow: 0 0 4px 3px rgba(0,0,0,.08);
+          .delete {
+            position: absolute;
+            top: 0.06rem;
+            right: 0.1rem;
+            display: block;
+            width: 0.11rem;
+            height: 0.11rem;
+            color: rgba(0,0,0,.2);
+            font-size: 0.16rem;
+          }
           .photo {
             width: 0.51rem;
             height: 0.51rem;
