@@ -75,11 +75,250 @@
     <div class="recommend">
       <header class="title">Zhangchundi</header>
       <div class="recommend-box">
-        <div class="recommend-list clearfix" ref="recommendList">
-          <div class="recommend-item"></div>
-          <div class="recommend-item"></div>
-          <div class="recommend-item"></div>
-          <div class="recommend-item"></div>
+        <div class="recommend-list clearfix" ref="recommendList"
+             :style="{width: listWrapWidth + 'px'}">
+          <div class="recommend-item">
+            <div class="photo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="h2">CEEN.J.K</div>
+            <div class="h3">Liuqiyuaaaaaa</div>
+            <div class="button-wrapper">
+              <button>ZCD</button>
+            </div>
+            <div class="slider clearfix">
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="recommend-item">
+            <div class="photo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="h2">CEEN.J.K</div>
+            <div class="h3">Liuqiyuaaaaaa</div>
+            <div class="button-wrapper">
+              <button>ZCD</button>
+            </div>
+            <div class="slider clearfix">
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="recommend-item">
+            <div class="photo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="h2">CEEN.J.K</div>
+            <div class="h3">Liuqiyuaaaaaa</div>
+            <div class="button-wrapper">
+              <button>ZCD</button>
+            </div>
+            <div class="slider clearfix">
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="recommend-item">
+            <div class="photo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="h2">CEEN.J.K</div>
+            <div class="h3">Liuqiyuaaaaaa</div>
+            <div class="button-wrapper">
+              <button>ZCD</button>
+            </div>
+            <div class="slider clearfix">
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="share-list">
+      <div class="share-item" v-for="(item, index) in dataList" :key="index">
+        <div class="share-header">
+          <div class="s-logo">
+            <img src="./../../assets/images/portrait.jpg" alt="">
+          </div>
+          <div class="s-desc-wrapper">
+            <div class="s-desc">
+              <div class="s-info">
+                <p class="username">{{item.username}}</p>
+                <p class="tag">{{item.tags}}</p>
+              </div>
+              <div class="s-other">
+                <span class="share-txt">分享</span>
+                <span class="icon iconfont icon-sandian"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="share-img-list clearfix">
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+        </div>
+        <div class="share-footer">
+          <div class="comment">
+            <div class="give-the-thumbs">
+              <span class="icon iconfont icon-xin"></span>
+              <span class="number">2323</span>
+            </div>
+            <div class="discuss" >
+              <div class="tooltip" ref="tooltip">
+                <div class="tooltip-box">
+                  <div class="fabulous" @click="fabulous(item, index)">
+                    <span class="icons iconfont icon-zan icon-fabulous" ref="zan"></span>
+                    <span v-if="!item.hasPoint">赞</span>
+                    <span v-else>取消</span>
+                  </div>
+                  <div class="commentary" @click="commentary(index)">
+                    <span class="icons iconfont icon-pinglun"></span>
+                    <span>评论</span>
+                  </div>
+                </div>
+              </div>
+              <span class="icon iconfont icon-pinglun" @click="showDiscuss(index)"></span>
+            </div>
+          </div>
+          <div class="describe">
+            <p>
+              ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
+              undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
+              angchundiZhangchundiZhangchundiZhangchundi
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="recommend">
+      <header class="title">Zhangchundi</header>
+      <div class="recommend-box" id="button-list">
+        <div class="recommend-list clearfix" ref="recommendListButton"
+             :style="{width: buttonListWrapWidth + 'px'}">
+          <div class="recommend-button">ZCD</div>
+          <div class="recommend-button">ZHANGCHUNDI</div>
+          <div class="recommend-button">ZHANGCHUNDI</div>
+          <div class="recommend-button">ZHANGCHUNDI</div>
+          <div class="recommend-button">ZHANGCHUNDI</div>
+          <div class="recommend-button">ZCD</div>
+          </div>
+        </div>
+      </div>
+    <div class="share-list">
+      <div class="share-item" v-for="(item, index) in dataList" :key="index">
+        <div class="share-header">
+          <div class="s-logo">
+            <img src="./../../assets/images/portrait.jpg" alt="">
+          </div>
+          <div class="s-desc-wrapper">
+            <div class="s-desc">
+              <div class="s-info">
+                <p class="username">{{item.username}}</p>
+                <p class="tag">{{item.tags}}</p>
+              </div>
+              <div class="s-other">
+                <span class="share-txt">分享</span>
+                <span class="icon iconfont icon-sandian"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="share-img-list clearfix">
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+          <div class="share-img-item">
+            <img src="../../assets/images/pros.png" alt="">
+          </div>
+        </div>
+        <div class="share-footer">
+          <div class="comment">
+            <div class="give-the-thumbs">
+              <span class="icon iconfont icon-xin"></span>
+              <span class="number">2323</span>
+            </div>
+            <div class="discuss" >
+              <div class="tooltip" ref="tooltip">
+                <div class="tooltip-box">
+                  <div class="fabulous" @click="fabulous(item, index)">
+                    <span class="icons iconfont icon-zan icon-fabulous" ref="zan"></span>
+                    <span v-if="!item.hasPoint">赞</span>
+                    <span v-else>取消</span>
+                  </div>
+                  <div class="commentary" @click="commentary(index)">
+                    <span class="icons iconfont icon-pinglun"></span>
+                    <span>评论</span>
+                  </div>
+                </div>
+              </div>
+              <span class="icon iconfont icon-pinglun" @click="showDiscuss(index)"></span>
+            </div>
+          </div>
+          <div class="describe">
+            <p>
+              ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
+              undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
+              angchundiZhangchundiZhangchundiZhangchundi
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -88,23 +327,26 @@
 
 <script>
 import BScroll from 'better-scroll';
-import { hasClass } from './../../utils/utils';
+import { hasClass, sliverWidth } from './../../utils/utils';
 
 export default {
   mounted() {
     const wrapper = document.querySelector('.recommend-box');
+    const wrapper1 = document.querySelector('#button-list');
     this.scroll = new BScroll(wrapper, {
       click: true,
       scrollX: true,
     });
+    this.scroll = new BScroll(wrapper1, {
+      click: true,
+      scrollX: true,
+    });
     const $recommendItem = document.getElementsByClassName('recommend-item');
+    const $recommendButton = document.getElementsByClassName('recommend-button');
     const $recommendList = this.$refs.recommendList;
-    if ($recommendItem.length > 0) {
-      const w = Number($recommendItem[0].clientWidth);
-      const marginRight = Number(window.getComputedStyle($recommendItem[0], null).marginRight.replace('px', ''));
-      $recommendList.style.width =
-        `${(w + marginRight) * $recommendItem.length}px`;
-    }
+    const $recommendListButton = this.$refs.recommendListButton;
+    this.listWrapWidth = sliverWidth($recommendList, $recommendItem);
+    this.buttonListWrapWidth = sliverWidth($recommendListButton, $recommendButton);
   },
   data() {
     return {
@@ -123,6 +365,8 @@ export default {
           hasPoint: true,
         },
       ],
+      listWrapWidth: 0,
+      buttonListWrapWidth: 0,
     };
   },
   methods: {
@@ -166,11 +410,11 @@ export default {
 
 <style scoped lang="scss">
   .share {
-    padding: 0.16rem 0 0.31rem 0;
+    padding: 0 0 0.31rem 0;
   }
 
   .share-list {
-    padding: 0 0.16rem;
+    padding: 0.12rem 0.16rem;
     width: 100%;
     .share-item {
       margin-bottom: 0.3rem;
@@ -314,6 +558,9 @@ export default {
           }
         }
       }
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -348,18 +595,91 @@ export default {
   .recommend {
     background: #f0f0f0;
     padding: 0.16rem;
+    .title {
+      font-size: 0.14rem;
+    }
     .recommend-box {
       width: 100%;
-      // overflow-x: auto;
       .recommend-list {
+        margin-top: 0.15rem;
         .recommend-item {
           width: 1.3rem;
-          height: 1.71rem;
-          background: red;
           border-radius: 4px;
-          margin-top: 0.2rem;
           float: left;
           margin-right: 0.1rem;
+          background: #fff;
+          text-align: center;
+          padding: 0.06rem;
+          box-shadow: 0 0 4px 3px rgba(0,0,0,.08);
+          .photo {
+            width: 0.51rem;
+            height: 0.51rem;
+            overflow: hidden;
+            border-radius: 50%;
+            margin: 0 auto;
+            img {
+              width: 100%;
+              vertical-align: middle;
+            }
+          }
+          .h2 {
+            font-size: 0.16rem;
+            color: #000;
+            margin-top: 0.05rem;
+          }
+          .h3 {
+            font-size: 0.14rem;
+            color: #999;
+            margin-top: 0.05rem;
+          }
+          .button-wrapper {
+            button {
+              display: block;
+              height: 0.2rem;
+              width: 100%;
+              background: red;
+              border-radius: 4px;
+              background: #00aba4;
+              color: #fff;
+              line-height: 0.19rem;
+              text-align: center;
+              margin-top: 0.05rem;
+              border: 0;
+              outline: none;
+              &:active {
+                opacity: 0.8;
+              }
+            }
+          }
+          .slider {
+            overflow: hidden;
+            margin-top: 0.05rem;
+            .slider-item {
+              float: left;
+              width: 0.36rem;
+              height: 0.36rem;
+              background: red;
+              margin-right: 0.05rem;
+              img {
+                width: 100%;
+                vertical-align: middle;
+              }
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+        .recommend-button {
+          float: left;
+          padding: 0.06rem 0.16rem;
+          border: 1px solid #00aba4;
+          border-radius: 20px;
+          margin-right: 0.1rem;
+          margin-bottom: 0.05rem;
+          &:last-child {
+            margin-right: 0;
+          }
         }
       }
     }

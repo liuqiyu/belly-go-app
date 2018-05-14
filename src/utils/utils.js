@@ -124,6 +124,18 @@ const removeHidden = () => {
   })
 }
 
+const sliverWidth = (domWrap, dom) => {
+  if (dom.length > 0) {
+    var w = 0;
+    const marginRight = Number(window.getComputedStyle(dom[0], null).marginRight.replace('px', ''));
+    for (let i = 0; i < dom.length; i += 1) {
+      w += (Number(marginRight) + Number(dom[i].clientWidth));
+    }
+    return w;
+  }
+};
+
+
 export {
   hasClass,
   toPoint,
@@ -133,5 +145,6 @@ export {
   browserType,
   searchControl,
   addHidden,
-  removeHidden
+  removeHidden,
+  sliverWidth
 }
