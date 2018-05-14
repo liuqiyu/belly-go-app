@@ -41,7 +41,7 @@
                     <span v-if="!item.hasPoint">赞</span>
                     <span v-else>取消</span>
                   </div>
-                  <div class="commentary">
+                  <div class="commentary" @click="commentary(index)">
                     <span class="icons iconfont icon-pinglun"></span>
                     <span>评论</span>
                   </div>
@@ -50,7 +50,6 @@
               <span class="icon iconfont icon-pinglun" @click="showDiscuss(index)"></span>
             </div>
           </div>
-          <input type="text">
           <div class="describe">
             <p>
               ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
@@ -111,6 +110,15 @@ export default {
         $zan[index].classList.remove('action');
         $tooltip[index].classList.remove('show');
       }, 500);
+    },
+
+    // 点击评论
+    commentary(index) {
+      const $tooltip = this.$refs.tooltip;
+      const $criticism = document.querySelector('.criticism');
+      $tooltip[index].classList.remove('show');
+
+      $criticism.style.bottom = 0;
     },
   },
 };
@@ -257,6 +265,7 @@ export default {
       }
     }
   }
+
   @keyframes myfirst
   {
     from {

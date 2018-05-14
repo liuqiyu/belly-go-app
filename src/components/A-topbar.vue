@@ -1,6 +1,6 @@
 <template>
   <div class="a-topbar">
-    头部
+    <div></div>
   </div>
 </template>
 
