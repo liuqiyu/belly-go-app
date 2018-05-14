@@ -87,21 +87,28 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 import { hasClass } from './../../utils/utils';
 
 export default {
   mounted() {
+    const wrapper = document.querySelector('.recommend-box');
+    this.scroll = new BScroll(wrapper, {
+      click: true,
+      scrollX: true,
+    });
     const $recommendItem = document.getElementsByClassName('recommend-item');
     const $recommendList = this.$refs.recommendList;
     if ($recommendItem.length > 0) {
       const w = Number($recommendItem[0].clientWidth);
       const marginRight = Number(window.getComputedStyle($recommendItem[0], null).marginRight.replace('px', ''));
-     $recommendList.style.width =
-       `${(w + marginRight) * $recommendItem.length}px`;
+      $recommendList.style.width =
+        `${(w + marginRight) * $recommendItem.length}px`;
     }
   },
   data() {
     return {
+      scroll: null,
       dataList: [
         {
           username: 'Maawin1',
@@ -343,7 +350,7 @@ export default {
     padding: 0.16rem;
     .recommend-box {
       width: 100%;
-      overflow-x: auto;
+      // overflow-x: auto;
       .recommend-list {
         .recommend-item {
           width: 1.3rem;

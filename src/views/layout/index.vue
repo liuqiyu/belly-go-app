@@ -33,7 +33,6 @@ export default {
     const wrapper = document.querySelector('.content-wrapper');
     this.scroll = new BScroll(wrapper, {
       click: true,
-      scrollX: true,
     });
   },
   components: {
