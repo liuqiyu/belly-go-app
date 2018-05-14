@@ -691,7 +691,6 @@ export default {
               display: block;
               height: 0.2rem;
               width: 100%;
-              background: red;
               border-radius: 4px;
               background: #00aba4;
               color: #fff;
@@ -712,7 +711,6 @@ export default {
               float: left;
               width: 0.36rem;
               height: 0.36rem;
-              background: red;
               margin-right: 0.05rem;
               img {
                 width: 100%;
@@ -738,5 +736,4 @@ export default {
       }
     }
   }
-
 </style>
