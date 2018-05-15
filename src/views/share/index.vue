@@ -14,7 +14,7 @@
               </div>
               <div class="s-other">
                 <span class="share-txt">分享</span>
-                <span class="icon iconfont icon-sandian"></span>
+                <span class="icon iconfont icon-gengduo"></span>
               </div>
             </div>
           </div>
@@ -27,24 +27,27 @@
         <div class="share-footer">
           <div class="comment">
             <div class="give-the-thumbs">
-              <span class="icon iconfont icon-xin"></span>
+              <!-- 已点赞 -->
+              <span v-if="!item.hasPoint" class="icon iconfont icon-xinyi"></span>
+              <!-- 未点赞 -->
+              <span v-else class="icon iconfont icon-xin"></span>
               <span class="number">2323</span>
             </div>
             <div class="discuss" >
               <div class="tooltip" ref="tooltip">
                 <div class="tooltip-box">
                   <div class="fabulous" @click="fabulous(item, index)">
-                    <span class="icons iconfont icon-zan icon-fabulous" ref="zan"></span>
+                    <span class="icons iconfont icon-zan icon-xinyi" ref="zan"></span>
                     <span v-if="!item.hasPoint">赞</span>
                     <span v-else>取消</span>
                   </div>
                   <div class="commentary" @click="commentary(index)">
-                    <span class="icons iconfont icon-pinglun"></span>
+                    <span class="icons iconfont icon-iconpinglun"></span>
                     <span>评论</span>
                   </div>
                 </div>
               </div>
-              <span class="icon iconfont icon-pinglun" @click="showDiscuss(index)"></span>
+              <span class="icon iconfont icon-iconpinglun" @click="showDiscuss(index)"></span>
             </div>
           </div>
           <div class="describe">
@@ -63,117 +66,7 @@
         <div class="recommend-list clearfix" ref="recommendList"
              :style="{width: listWrapWidth + 'px'}">
           <div class="recommend-item">
-            <span class="delete iconfont icon-delete"></span>
-            <div class="photo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="h2">CEEN.J.K</div>
-            <div class="h3">Liuqiyuaaaaaa</div>
-            <div class="button-wrapper">
-              <button>ZCD</button>
-            </div>
-            <div class="slider clearfix">
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="recommend-item">
-            <span class="delete iconfont icon-delete"></span>
-            <div class="photo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="h2">CEEN.J.K</div>
-            <div class="h3">Liuqiyuaaaaaa</div>
-            <div class="button-wrapper">
-              <button>ZCD</button>
-            </div>
-            <div class="slider clearfix">
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="recommend-item">
-            <span class="delete iconfont icon-delete"></span>
-            <div class="photo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="h2">CEEN.J.K</div>
-            <div class="h3">Liuqiyuaaaaaa</div>
-            <div class="button-wrapper">
-              <button>ZCD</button>
-            </div>
-            <div class="slider clearfix">
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="recommend-item">
-            <span class="delete iconfont icon-delete"></span>
-            <div class="photo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="h2">CEEN.J.K</div>
-            <div class="h3">Liuqiyuaaaaaa</div>
-            <div class="button-wrapper">
-              <button>ZCD</button>
-            </div>
-            <div class="slider clearfix">
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="recommend-item">
-            <span class="delete iconfont icon-delete"></span>
-            <div class="photo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="h2">CEEN.J.K</div>
-            <div class="h3">Liuqiyuaaaaaa</div>
-            <div class="button-wrapper">
-              <button>ZCD</button>
-            </div>
-            <div class="slider clearfix">
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="recommend-item">
-            <span class="delete iconfont icon-delete"></span>
+            <span class="delete iconfont icon-error"></span>
             <div class="photo">
               <img src="./../../assets/images/portrait.jpg" alt="">
             </div>
@@ -211,7 +104,7 @@
               </div>
               <div class="s-other">
                 <span class="share-txt">分享</span>
-                <span class="icon iconfont icon-sandian"></span>
+                <span class="icon iconfont icon-gengduo"></span>
               </div>
             </div>
           </div>
@@ -246,7 +139,7 @@
               <div class="tooltip" ref="tooltip">
                 <div class="tooltip-box">
                   <div class="fabulous" @click="fabulous(item, index)">
-                    <span class="icons iconfont icon-zan icon-fabulous" ref="zan"></span>
+                    <span class="icons iconfont icon-zan icon-xinyi" ref="zan"></span>
                     <span v-if="!item.hasPoint">赞</span>
                     <span v-else>取消</span>
                   </div>
@@ -256,7 +149,7 @@
                   </div>
                 </div>
               </div>
-              <span class="icon iconfont icon-pinglun" @click="showDiscuss(index)"></span>
+              <span class="icon iconfont icon-iconpinglun" @click="showDiscuss(index)"></span>
             </div>
           </div>
           <div class="describe">
@@ -283,78 +176,6 @@
           </div>
         </div>
       </div>
-    <div class="share-list">
-      <div class="share-item" v-for="(item, index) in dataList" :key="index">
-        <div class="share-header">
-          <div class="s-logo">
-            <img src="./../../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="s-desc-wrapper">
-            <div class="s-desc">
-              <div class="s-info">
-                <p class="username">{{item.username}}</p>
-                <p class="tag">{{item.tags}}</p>
-              </div>
-              <div class="s-other">
-                <span class="share-txt">分享</span>
-                <span class="icon iconfont icon-sandian"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="share-img-list clearfix">
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-        </div>
-        <div class="share-footer">
-          <div class="comment">
-            <div class="give-the-thumbs">
-              <span class="icon iconfont icon-xin"></span>
-              <span class="number">2323</span>
-            </div>
-            <div class="discuss" >
-              <div class="tooltip" ref="tooltip">
-                <div class="tooltip-box">
-                  <div class="fabulous" @click="fabulous(item, index)">
-                    <span class="icons iconfont icon-zan icon-fabulous" ref="zan"></span>
-                    <span v-if="!item.hasPoint">赞</span>
-                    <span v-else>取消</span>
-                  </div>
-                  <div class="commentary" @click="commentary(index)">
-                    <span class="icons iconfont icon-pinglun"></span>
-                    <span>评论</span>
-                  </div>
-                </div>
-              </div>
-              <span class="icon iconfont icon-pinglun" @click="showDiscuss(index)"></span>
-            </div>
-          </div>
-          <div class="describe">
-            <p>
-              ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
-              undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
-              angchundiZhangchundiZhangchundiZhangchundi
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -366,20 +187,24 @@ export default {
   mounted() {
     const wrapper = document.querySelector('.recommend-box');
     const wrapper1 = document.querySelector('#button-list');
+    // 用户滑动x轴
     this.scroll = new BScroll(wrapper, {
       click: true,
       scrollX: true,
     });
+    // 按钮滑动x轴
     this.scroll = new BScroll(wrapper1, {
       click: true,
       scrollX: true,
     });
-    const $recommendItem = document.getElementsByClassName('recommend-item');
-    const $recommendButton = document.getElementsByClassName('recommend-button');
-    const $recommendList = this.$refs.recommendList;
-    const $recommendListButton = this.$refs.recommendListButton;
-    this.listWrapWidth = sliverWidth($recommendList, $recommendItem);
-    this.buttonListWrapWidth = sliverWidth($recommendListButton, $recommendButton);
+    // 用户
+    const $recommendItem = document.getElementsByClassName('recommend-item');  // 用户item
+    const $recommendList = this.$refs.recommendList; // 用户外框
+    this.listWrapWidth = sliverWidth($recommendList, $recommendItem) + 10;  // 用户x轴滚动
+    // 按钮
+    const $recommendButton = document.getElementsByClassName('recommend-button');  // 按钮item
+    const $recommendListButton = this.$refs.recommendListButton;  // 按钮外框
+    this.buttonListWrapWidth = sliverWidth($recommendListButton, $recommendButton) + 10;  // 按钮X轴滚动
   },
   data() {
     return {
@@ -434,9 +259,11 @@ export default {
       const $tooltip = this.$refs.tooltip;
       const $criticism = document.querySelector('.criticism');
       $tooltip[index].classList.remove('show');
-
       $criticism.style.bottom = 0;
     },
+  },
+  beforeDestroy() {
+    this.scroll = null;
   },
 };
 </script>
@@ -446,6 +273,7 @@ export default {
     padding: 0 0 0.31rem 0;
   }
 
+  // 分享列表
   .share-list {
     padding: 0.12rem 0.16rem;
     width: 100%;
@@ -495,6 +323,7 @@ export default {
             }
             .icon {
               font-size: 0.2rem;
+              vertical-align: middle;
             }
           }
         }
@@ -531,7 +360,7 @@ export default {
             .icon{
               vertical-align: middle;
               color: #06a4a2;
-              font-size: 0.2rem;
+              font-size: 0.18rem;
               font-weight: bolder;
             }
             .number {
@@ -559,10 +388,11 @@ export default {
                 display: flex;
                 justify-content: space-between;
                 .icons {
-                  font-size: 0.14rem;
+                  font-size: 0.16rem;
                   margin-right: 0.03rem;
+                  vertical-align: middle;
                 }
-                .icon-fabulous {
+                .icon-xinyi {
                   display: inline-block;
                   &.action {
                     animation: myfirst 0.5s;
@@ -662,8 +492,12 @@ export default {
             display: block;
             width: 0.11rem;
             height: 0.11rem;
-            color: rgba(0,0,0,.2);
+            color: rgba(0,0,0,.3);
             font-size: 0.16rem;
+            cursor: pointer;
+            &:hover {
+              color: red;
+            }
           }
           .photo {
             width: 0.51rem;

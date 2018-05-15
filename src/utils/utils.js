@@ -131,7 +131,7 @@ const sliverWidth = (domWrap, dom) => {
     for (let i = 0; i < dom.length; i += 1) {
       w += (Number(marginRight) + Number(dom[i].clientWidth));
     }
-    return w;
+    return w + 10;
   }
 };
 

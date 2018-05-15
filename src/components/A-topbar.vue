@@ -6,7 +6,7 @@
       </div>
       <div class="centerbar">zhangchundi</div>
       <div class="rightbar">
-        <span class="iconfont icon-gouwuche"></span>
+        <span class="iconfont icon-gouwu"></span>
       </div>
     </div>
   </div>
@@ -34,15 +34,19 @@ export default {
       padding: 0 0.16rem;
       height: 100%;
       .leftbar {
-        font-size: 0.2rem;
+        span {
+          font-size: 0.2rem;
+        }
       }
       .centerbar {
         font-size: 0.14rem;
         font-weight: bolder;
       }
       .rightbar {
-        font-size: 0.2rem;
-        color: #000;
+        span {
+          font-size: 0.18rem;
+          color: #000;
+        }
       }
     }
   }

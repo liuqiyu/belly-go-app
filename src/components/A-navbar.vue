@@ -1,19 +1,19 @@
 <template>
   <div class="a-navbar">
     <div class="nav-item">
-      <span class="icon iconfont icon-renwu"></span>
+      <span class="icon iconfont icon-ren"></span>
       <p class="title">导航1</p>
     </div>
     <div class="nav-item">
-      <span class="icon iconfont icon-renwu"></span>
+      <span class="icon iconfont icon-icon--"></span>
       <p class="title">导航2</p>
     </div>
     <div class="nav-item">
-      <span class="icon iconfont icon-renwu"></span>
+      <span class="icon iconfont icon-qiehuanneirong"></span>
       <p class="title">导航3</p>
     </div>
     <div class="nav-item">
-      <span class="icon iconfont icon-renwu"></span>
+      <span class="icon iconfont icon-biaoqian"></span>
       <p class="title">导航4</p>
     </div>
   </div>
