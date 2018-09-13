@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+import './mint-ui';
 import './assets/css/reset.css';
 import './utils/rem';
 import './assets/alifont/iconfont.css';

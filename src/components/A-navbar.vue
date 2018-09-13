@@ -1,12 +1,16 @@
 <template>
   <div class="a-navbar">
     <div class="nav-item">
-      <span class="icon iconfont icon-ren"></span>
-      <p class="title">导航1</p>
+      <router-link to="/share">
+        <span class="icon iconfont icon-ren"></span>
+        <p class="title">动态</p>
+      </router-link>
     </div>
     <div class="nav-item">
-      <span class="icon iconfont icon-icon--"></span>
-      <p class="title">导航2</p>
+      <router-link to="/follow">
+        <span class="icon iconfont icon-icon--"></span>
+        <p class="title">推荐</p>
+      </router-link>
     </div>
     <div class="nav-item">
       <span class="icon iconfont icon-qiehuanneirong"></span>
@@ -14,7 +18,7 @@
     </div>
     <div class="nav-item">
       <span class="icon iconfont icon-biaoqian"></span>
-      <p class="title">导航4</p>
+      <p class="title">我的</p>
     </div>
   </div>
 </template>
@@ -25,6 +29,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import './../assets/css/main';
   .a-navbar {
     z-index: 999;
     position: fixed;
@@ -48,6 +53,11 @@ export default {
         margin-top: 0.03rem;
         color: #666;
       }
+    }
+  }
+  .router-active {
+    span, p {
+      color: $main-color !important;
     }
   }
 </style>

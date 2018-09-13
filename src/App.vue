@@ -9,7 +9,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+  @import './assets/css/mint-ui';
   #app {
     width: 100%;
     height: 100%;

@@ -36,18 +36,19 @@
             <div class="discuss" >
               <div class="tooltip" ref="tooltip">
                 <div class="tooltip-box">
-                  <div class="fabulous" @click="fabulous(item, index)">
-                    <span class="icons iconfont icon-zan icon-xinyi" ref="zan"></span>
+                  <div class="fabulous" @click="fabulous(item, index)" ref="zan">
+                    <span class="icons iconfont icon-zan icon-xinyi"></span>
                     <span v-if="!item.hasPoint">赞</span>
                     <span v-else>取消</span>
                   </div>
                   <div class="commentary" @click="commentary(index)">
-                    <span class="icons iconfont icon-iconpinglun"></span>
+                    <span class="icons iconfont icon-pinglun"></span>
                     <span>评论</span>
                   </div>
                 </div>
               </div>
-              <span class="icon iconfont icon-iconpinglun" @click="showDiscuss(index)"></span>
+              <span class="icon iconfont icon-iconpinglun" @click="showDiscuss"
+                    ref="pinglun"></span>
             </div>
           </div>
           <div class="describe">
@@ -65,6 +66,94 @@
       <div class="recommend-box">
         <div class="recommend-list clearfix" ref="recommendList"
              :style="{width: listWrapWidth + 'px'}">
+          <div class="recommend-item">
+            <span class="delete iconfont icon-error"></span>
+            <div class="photo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="h2">CEEN.J.K</div>
+            <div class="h3">Liuqiyuaaaaaa</div>
+            <div class="button-wrapper">
+              <button>ZCD</button>
+            </div>
+            <div class="slider clearfix">
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="recommend-item">
+            <span class="delete iconfont icon-error"></span>
+            <div class="photo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="h2">CEEN.J.K</div>
+            <div class="h3">Liuqiyuaaaaaa</div>
+            <div class="button-wrapper">
+              <button>ZCD</button>
+            </div>
+            <div class="slider clearfix">
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="recommend-item">
+            <span class="delete iconfont icon-error"></span>
+            <div class="photo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="h2">CEEN.J.K</div>
+            <div class="h3">Liuqiyuaaaaaa</div>
+            <div class="button-wrapper">
+              <button>ZCD</button>
+            </div>
+            <div class="slider clearfix">
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="recommend-item">
+            <span class="delete iconfont icon-error"></span>
+            <div class="photo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="h2">CEEN.J.K</div>
+            <div class="h3">Liuqiyuaaaaaa</div>
+            <div class="button-wrapper">
+              <button>ZCD</button>
+            </div>
+            <div class="slider clearfix">
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+              <div class="slider-item">
+                <img src="./../../assets/images/pros.png" alt="">
+              </div>
+            </div>
+          </div>
           <div class="recommend-item">
             <span class="delete iconfont icon-error"></span>
             <div class="photo">
@@ -132,14 +221,17 @@
         <div class="share-footer">
           <div class="comment">
             <div class="give-the-thumbs">
-              <span class="icon iconfont icon-xin"></span>
+              <!-- 已点赞 -->
+              <span v-if="!item.hasPoint" class="icon iconfont icon-xinyi"></span>
+              <!-- 未点赞 -->
+              <span v-else class="icon iconfont icon-xin"></span>
               <span class="number">2323</span>
             </div>
             <div class="discuss" >
               <div class="tooltip" ref="tooltip">
                 <div class="tooltip-box">
-                  <div class="fabulous" @click="fabulous(item, index)">
-                    <span class="icons iconfont icon-zan icon-xinyi" ref="zan"></span>
+                  <div class="fabulous" @click="fabulous(item, index)" ref="zan">
+                    <span class="icons iconfont icon-zan icon-xinyi"></span>
                     <span v-if="!item.hasPoint">赞</span>
                     <span v-else>取消</span>
                   </div>
@@ -149,7 +241,8 @@
                   </div>
                 </div>
               </div>
-              <span class="icon iconfont icon-iconpinglun" @click="showDiscuss(index)"></span>
+              <span class="icon iconfont icon-iconpinglun" @click="showDiscuss"
+                    ref="pinglun"></span>
             </div>
           </div>
           <div class="describe">
@@ -198,13 +291,13 @@ export default {
       scrollX: true,
     });
     // 用户
-    const $recommendItem = document.getElementsByClassName('recommend-item');  // 用户item
-    const $recommendList = this.$refs.recommendList; // 用户外框
-    this.listWrapWidth = sliverWidth($recommendList, $recommendItem) + 10;  // 用户x轴滚动
+    const $recommendItem = document.getElementsByClassName('recommend-item');
+    const $recommendList = this.$refs.recommendList;
+    this.listWrapWidth = sliverWidth($recommendList, $recommendItem) + 10;
     // 按钮
-    const $recommendButton = document.getElementsByClassName('recommend-button');  // 按钮item
-    const $recommendListButton = this.$refs.recommendListButton;  // 按钮外框
-    this.buttonListWrapWidth = sliverWidth($recommendListButton, $recommendButton) + 10;  // 按钮X轴滚动
+    const $recommendButton = document.getElementsByClassName('recommend-button');
+    const $recommendListButton = this.$refs.recommendListButton;
+    this.buttonListWrapWidth = sliverWidth($recommendListButton, $recommendButton) + 10;
   },
   data() {
     return {
@@ -229,7 +322,14 @@ export default {
   },
   methods: {
     // 展开tooltip
-    showDiscuss(index) {
+    showDiscuss() {
+      const $pinglun = this.$refs.pinglun;
+      let index;
+      for (let i = 0; i < $pinglun.length; i += 1) {
+        if ($pinglun[i] === event.target) {
+          index = i;
+        }
+      }
       const $tooltip = this.$refs.tooltip;
       if (hasClass($tooltip[index], 'show')) {
         $tooltip[index].classList.remove('show');
@@ -240,6 +340,16 @@ export default {
 
     // 点赞效果
     fabulous(item, index) {
+      // let index;
+      // const $zan = this.$refs.zan;
+      // for (let i = 0; i < $zan.length; i += 1) {
+      //   // console.log($zan[i]);
+      //   console.log(event.target);
+      //   // console.log(event.target === $zan[i]);
+      //   if (event.target === $zan[i]) {
+      //     index = i;
+      //   }
+      // }
       const $zan = this.$refs.zan;
       const $tooltip = this.$refs.tooltip;
       if (item.hasPoint) {
@@ -405,7 +515,7 @@ export default {
               }
             }
             .icon {
-              font-size: 0.2rem;
+              font-size: 0.18rem;
               color: #999;
               font-weight: bolder;
             }
@@ -437,6 +547,7 @@ export default {
     }
   }
 
+  // 动画
   @keyframes myfirst
   {
     from {
@@ -450,7 +561,6 @@ export default {
       transform: scale(1.5,1.5); /* 标准语法 */
     }
   }
-
   @-webkit-keyframes myfirst /* Safari 与 Chrome */
   {
     from {
@@ -465,6 +575,7 @@ export default {
     }
   }
 
+  // X轴滑动
   .recommend {
     background: #f0f0f0;
     padding: 0.16rem;
@@ -473,8 +584,10 @@ export default {
     }
     .recommend-box {
       width: 100%;
+      // overflow: hidden;
       .recommend-list {
         margin-top: 0.15rem;
+        // 用户滑动
         .recommend-item {
           position: relative;
           width: 1.3rem;
@@ -485,6 +598,7 @@ export default {
           text-align: center;
           padding: 0.06rem;
           box-shadow: 0 0 4px 3px rgba(0,0,0,.08);
+          // 删除
           .delete {
             position: absolute;
             top: 0.06rem;
@@ -556,6 +670,7 @@ export default {
             }
           }
         }
+        // 用户按钮滑动
         .recommend-button {
           float: left;
           padding: 0.06rem 0.16rem;

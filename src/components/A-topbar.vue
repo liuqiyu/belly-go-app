@@ -2,11 +2,15 @@
   <div class="a-topbar">
     <div class="top-header">
       <div class="leftbar">
-        <span class="iconfont icon-sousuo"></span>
+        <slot name="left">
+          <span class="iconfont icon-sousuo" ></span>
+        </slot>
       </div>
-      <div class="centerbar">zhangchundi</div>
+      <div class="centerbar">Belly Go</div>
       <div class="rightbar">
-        <span class="iconfont icon-gouwu"></span>
+        <slot name="right">
+          <span class="iconfont icon-gouwu"></span>
+        </slot>
       </div>
     </div>
   </div>
