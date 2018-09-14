@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+      body {
+        background: #fff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      img {
+        border: none;
+      }
+
+      .clear::after {
+        content: "";
+        display: table;
+        clear: both
+      }
+
+      ul,
+      li {
+        list-style: none;
+      }
+
+      #uls {
+        margin: 1rem;
+      }
+
+      #uls li {
+        height: 40px;
+        padding: 12px 0;
+        border: 1px solid skyblue;
+        color: #333;
+        margin-bottom: 12px;
+        border-radius: 2px;
+        transition: all .7s linear;
+        overflow: hidden;
+      }
+
+      li p {
+        line-height: 40px;
+        float: left;
+        text-align: left;
+        text-indent: 2rem;
+        width: 70%;
+      }
+
+      li a {
+        display: block;
+        font-size: 13px;
+        border-radius: 5px;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 5px;
+        margin-right: 3%;
+        background-color: skyblue;
+        color: #fff;
+        float: right;
+        width: 60px;
+        text-align: center;
+      }
+      /*动画效果 摘选自animate.css*/
+
+      @-webkit-keyframes flipOutX {
+        from {
+          -webkit-transform: perspective(400px);
+          transform: perspective(400px);
+        }
+        30% {
+          -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+          transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+          opacity: 1;
+        }
+        to {
+          -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+          transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes flipOutX {
+        from {
+          -webkit-transform: perspective(400px);
+          transform: perspective(400px);
+        }
+        30% {
+          -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+          transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+          opacity: 1;
+        }
+        to {
+          -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+          transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+          opacity: 0;
+        }
+      }
+
+      .flipOutX {
+        -webkit-animation-name: flipOutX;
+        animation-name: flipOutX;
+        animation-duration: .7s;
+        animation-timing-function: linear;
+        -webkit-animation-duration: .7s;
+        animation-fill-mode: forwards
+      }
+    </style>
+    <title>first-app</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <ul id="uls">
+      <li class="clear">
+        <p>
+          秘密的甚笃1
+        </p>
+        <a href="javascript:;">
+          删除
+        </a>
+      </li>
+      <li class="clear">
+        <p>
+          秘密的甚笃2
+        </p>
+        <a href="javascript:;">
+          删除
+        </a>
+      </li>
+      <li class="clear">
+        <p>
+          秘密的甚笃3
+        </p>
+        <a href="javascript:;">
+          删除
+        </a>
+      </li>
+      <li class="clear">
+        <p>
+          秘密的甚笃4
+        </p>
+        <a href="javascript:;">
+          删除
+        </a>
+      </li>
+      <li class="clear">
+        <p>
+          秘密的甚笃5
+        </p>
+        <a href="javascript:;">
+          删除
+        </a>
+      </li>
+    </ul>
+    <script>
+      var oul = document.getElementById("uls");
+      var olis = oul.getElementsByTagName("li");
+      for (var i = 0; i < olis.length; i++) {
+        olis[i].getElementsByTagName("a")[0].onclick = function() {
+          var theLi = this.parentNode;
+          theLi.className = "flipOutX";
+          setTimeout(function() {
+            theLi.style.cssText = "height:0;padding:0;border-width:0;margin:0";
+          }, 280);
+          setTimeout(function() {
+            oul.removeChild(theLi)
+          }, 1000)
+
+        }
+      }
+    </script>
+  </body>
+</html>

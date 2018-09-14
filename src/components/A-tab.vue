@@ -27,7 +27,7 @@ export default {
   .a-tab {
     ul li {
       float: left;
-      padding: 0.04rem 0.2rem;
+      padding: 0.065rem 0.2rem;
       border: 1px solid #dcdfe6;
       border-right: none;
       font-size: 0.12rem;

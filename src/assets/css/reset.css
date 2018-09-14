@@ -37,6 +37,10 @@ body {
   display: none;
 }
 
+html, body {
+  width: 100%;
+}
+
 
 input {
   width: 100%;

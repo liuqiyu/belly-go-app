@@ -282,26 +282,26 @@ import { hasClass, sliverWidth } from './../../utils/utils';
 
 export default {
   mounted() {
-    const wrapper = document.querySelector('.recommend-box');
-    const wrapper1 = document.querySelector('#button-list');
-    // 用户滑动x轴
-    this.scroll = new BScroll(wrapper, {
-      click: true,
-      scrollX: true,
-    });
-    // 按钮滑动x轴
-    this.scroll = new BScroll(wrapper1, {
-      click: true,
-      scrollX: true,
-    });
-    // 用户
-    const $recommendItem = document.getElementsByClassName('recommend-item');
-    const $recommendList = this.$refs.recommendList;
-    this.listWrapWidth = sliverWidth($recommendList, $recommendItem) + 10;
-    // 按钮
-    const $recommendButton = document.getElementsByClassName('recommend-button');
-    const $recommendListButton = this.$refs.recommendListButton;
-    this.buttonListWrapWidth = sliverWidth($recommendListButton, $recommendButton) + 10;
+    // const wrapper = document.querySelector('.recommend-box');
+    // const wrapper1 = document.querySelector('#button-list');
+    // // 用户滑动x轴
+    // this.scroll = new BScroll(wrapper, {
+    //   click: true,
+    //   scrollX: true,
+    // });
+    // // 按钮滑动x轴
+    // this.scroll = new BScroll(wrapper1, {
+    //   click: true,
+    //   scrollX: true,
+    // });
+    // // 用户
+    // const $recommendItem = document.getElementsByClassName('recommend-item');
+    // const $recommendList = this.$refs.recommendList;
+    // this.listWrapWidth = sliverWidth($recommendList, $recommendItem) + 10;
+    // // 按钮
+    // const $recommendButton = document.getElementsByClassName('recommend-button');
+    // const $recommendListButton = this.$refs.recommendListButton;
+    // this.buttonListWrapWidth = sliverWidth($recommendListButton, $recommendButton) + 10;
   },
   components: {
     Atopbar,
