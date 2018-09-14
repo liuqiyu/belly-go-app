@@ -1,9 +1,9 @@
 <template>
   <div class="content-wrapper">
+    <Atopbar>
+      <Atab :list="tabList" slot="center"></Atab>
+    </Atopbar>
     <div class="follow">
-      <Atopbar>
-        <Atab :list="tabList" slot="center"></Atab>
-      </Atopbar>
       <router-view></router-view>
     </div>
   </div>

@@ -17,8 +17,10 @@
       <p class="title">导航3</p>
     </div>
     <div class="nav-item">
-      <span class="icon iconfont icon-biaoqian"></span>
-      <p class="title">我的</p>
+      <router-link to="/user">
+        <span class="icon iconfont icon-biaoqian"></span>
+        <p class="title">我的</p>
+      </router-link>
     </div>
   </div>
 </template>

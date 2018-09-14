@@ -1,7 +1,5 @@
 <template>
   <div class="layout">
-    <!--<Atopbar></Atopbar>-->
-
       <router-view></router-view>
       <!--<div class="scroll-wrapper">-->
       <!--</div>-->
@@ -19,7 +17,6 @@
 </template>
 
 <script>
-import BScroll from 'better-scroll';
 import Atopbar from './../../components/A-topbar';
 import Anavbar from './../../components/A-navbar';
 
@@ -29,12 +26,6 @@ export default {
       scroll: null,
       textValue: '',
     };
-  },
-  mounted() {
-    // const wrapper = document.querySelector('.content-wrapper');
-    // this.scroll = new BScroll(wrapper, {
-    //   click: true,
-    // });
   },
   components: {
     Atopbar,
