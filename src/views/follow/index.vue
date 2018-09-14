@@ -1,20 +1,24 @@
 <template>
-  <div class="follow">
-    <header>
-      <Atab :list="tabList"></Atab>
-    </header>
-    <router-view></router-view>
+  <div class="content-wrapper">
+    <div class="follow">
+      <Atopbar>
+        <Atab :list="tabList" slot="center"></Atab>
+      </Atopbar>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
 import RecommendBox from './../../components/recommendBox';
 import Atab from './../../components/A-tab';
+import Atopbar from './../../components/A-topbar';
 
 export default {
   components: {
     RecommendBox,
     Atab,
+    Atopbar,
   },
   data() {
     return {
@@ -35,11 +39,7 @@ export default {
 
 <style scoped lang="scss">
   .follow {
-    padding: 0 0.05rem 0.4rem 0.05rem;
-    header {
-      padding: 0.15rem;
-      text-align: center;
-    }
+    padding: 0.1rem 0.1rem 0.2rem 0.1rem;
   }
 
 </style>

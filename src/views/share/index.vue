@@ -1,279 +1,283 @@
 <template>
-  <div class="share">
-    <div class="share-list">
-      <div class="share-item" v-for="(item, index) in dataList" :key="index">
-        <div class="share-header">
-          <div class="s-logo">
-            <img src="./../../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="s-desc-wrapper">
-            <div class="s-desc">
-              <div class="s-info">
-                <p class="username">{{item.username}}</p>
-                <p class="tag">{{item.tags}}</p>
-              </div>
-              <div class="s-other">
-                <span class="share-txt">分享</span>
-                <span class="icon iconfont icon-gengduo"></span>
-              </div>
+  <div class="content-wrapper">
+    <Atopbar></Atopbar>
+    <div class="share">
+      <div class="share-list">
+        <div class="share-item" v-for="(item, index) in dataList" :key="index">
+          <div class="share-header">
+            <div class="s-logo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
             </div>
-          </div>
-        </div>
-        <div class="share-img-list clearfix">
-          <div class="share-img-big">
-            <img src="../../assets/images/big-img.jpg" alt="">
-          </div>
-        </div>
-        <div class="share-footer">
-          <div class="comment">
-            <div class="give-the-thumbs">
-              <!-- 已点赞 -->
-              <span v-if="!item.hasPoint" class="icon iconfont icon-xinyi"></span>
-              <!-- 未点赞 -->
-              <span v-else class="icon iconfont icon-xin"></span>
-              <span class="number">2323</span>
-            </div>
-            <div class="discuss" >
-              <div class="tooltip" ref="tooltip">
-                <div class="tooltip-box">
-                  <div class="fabulous" @click="fabulous(item, index)" ref="zan">
-                    <span class="icons iconfont icon-zan icon-xinyi"></span>
-                    <span v-if="!item.hasPoint">赞</span>
-                    <span v-else>取消</span>
-                  </div>
-                  <div class="commentary" @click="commentary(index)">
-                    <span class="icons iconfont icon-pinglun"></span>
-                    <span>评论</span>
-                  </div>
+            <div class="s-desc-wrapper">
+              <div class="s-desc">
+                <div class="s-info">
+                  <p class="username">{{item.username}}</p>
+                  <p class="tag">{{item.tags}}</p>
+                </div>
+                <div class="s-other">
+                  <span class="share-txt">分享</span>
+                  <span class="icon iconfont icon-gengduo"></span>
                 </div>
               </div>
-              <span class="icon iconfont icon-iconpinglun" @click="showDiscuss"
-                    ref="pinglun"></span>
             </div>
           </div>
-          <div class="describe">
-            <p>
-              ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
-              undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
-              angchundiZhangchundiZhangchundiZhangchundi
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="recommend">
-      <header class="title">Zhangchundi</header>
-      <div class="recommend-box">
-        <div class="recommend-list clearfix" ref="recommendList"
-             :style="{width: listWrapWidth + 'px'}">
-          <div class="recommend-item">
-            <span class="delete iconfont icon-error"></span>
-            <div class="photo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="h2">CEEN.J.K</div>
-            <div class="h3">Liuqiyuaaaaaa</div>
-            <div class="button-wrapper">
-              <button>ZCD</button>
-            </div>
-            <div class="slider clearfix">
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
+          <div class="share-img-list clearfix">
+            <div class="share-img-big">
+              <img src="../../assets/images/big-img.jpg" alt="">
             </div>
           </div>
-          <div class="recommend-item">
-            <span class="delete iconfont icon-error"></span>
-            <div class="photo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="h2">CEEN.J.K</div>
-            <div class="h3">Liuqiyuaaaaaa</div>
-            <div class="button-wrapper">
-              <button>ZCD</button>
-            </div>
-            <div class="slider clearfix">
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
+          <div class="share-footer">
+            <div class="comment">
+              <div class="give-the-thumbs">
+                <!-- 已点赞 -->
+                <span v-if="!item.hasPoint" class="icon iconfont icon-xinyi"></span>
+                <!-- 未点赞 -->
+                <span v-else class="icon iconfont icon-xin"></span>
+                <span class="number">2323</span>
               </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="recommend-item">
-            <span class="delete iconfont icon-error"></span>
-            <div class="photo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="h2">CEEN.J.K</div>
-            <div class="h3">Liuqiyuaaaaaa</div>
-            <div class="button-wrapper">
-              <button>ZCD</button>
-            </div>
-            <div class="slider clearfix">
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="recommend-item">
-            <span class="delete iconfont icon-error"></span>
-            <div class="photo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="h2">CEEN.J.K</div>
-            <div class="h3">Liuqiyuaaaaaa</div>
-            <div class="button-wrapper">
-              <button>ZCD</button>
-            </div>
-            <div class="slider clearfix">
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="recommend-item">
-            <span class="delete iconfont icon-error"></span>
-            <div class="photo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="h2">CEEN.J.K</div>
-            <div class="h3">Liuqiyuaaaaaa</div>
-            <div class="button-wrapper">
-              <button>ZCD</button>
-            </div>
-            <div class="slider clearfix">
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-              <div class="slider-item">
-                <img src="./../../assets/images/pros.png" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="share-list">
-      <div class="share-item" v-for="(item, index) in dataList" :key="index">
-        <div class="share-header">
-          <div class="s-logo">
-            <img src="./../../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="s-desc-wrapper">
-            <div class="s-desc">
-              <div class="s-info">
-                <p class="username">{{item.username}}</p>
-                <p class="tag">{{item.tags}}</p>
-              </div>
-              <div class="s-other">
-                <span class="share-txt">分享</span>
-                <span class="icon iconfont icon-gengduo"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="share-img-list clearfix">
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-          <div class="share-img-item">
-            <img src="../../assets/images/pros.png" alt="">
-          </div>
-        </div>
-        <div class="share-footer">
-          <div class="comment">
-            <div class="give-the-thumbs">
-              <!-- 已点赞 -->
-              <span v-if="!item.hasPoint" class="icon iconfont icon-xinyi"></span>
-              <!-- 未点赞 -->
-              <span v-else class="icon iconfont icon-xin"></span>
-              <span class="number">2323</span>
-            </div>
-            <div class="discuss" >
-              <div class="tooltip" ref="tooltip">
-                <div class="tooltip-box">
-                  <div class="fabulous" @click="fabulous(item, index)" ref="zan">
-                    <span class="icons iconfont icon-zan icon-xinyi"></span>
-                    <span v-if="!item.hasPoint">赞</span>
-                    <span v-else>取消</span>
-                  </div>
-                  <div class="commentary" @click="commentary(index)">
-                    <span class="icons iconfont icon-pinglun"></span>
-                    <span>评论</span>
+              <div class="discuss" >
+                <div class="tooltip" ref="tooltip">
+                  <div class="tooltip-box">
+                    <div class="fabulous" @click="fabulous(item, index)" ref="zan">
+                      <span class="icons iconfont icon-zan icon-xinyi"></span>
+                      <span v-if="!item.hasPoint">赞</span>
+                      <span v-else>取消</span>
+                    </div>
+                    <div class="commentary" @click="commentary(index)">
+                      <span class="icons iconfont icon-pinglun"></span>
+                      <span>评论</span>
+                    </div>
                   </div>
                 </div>
+                <span class="icon iconfont icon-iconpinglun" @click="showDiscuss"
+                      ref="pinglun"></span>
               </div>
-              <span class="icon iconfont icon-iconpinglun" @click="showDiscuss"
-                    ref="pinglun"></span>
+            </div>
+            <div class="describe">
+              <p>
+                ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
+                undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
+                angchundiZhangchundiZhangchundiZhangchundi
+              </p>
             </div>
           </div>
-          <div class="describe">
-            <p>
-              ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
-              undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
-              angchundiZhangchundiZhangchundiZhangchundi
-            </p>
+        </div>
+      </div>
+      <div class="recommend">
+        <header class="title">Zhangchundi</header>
+        <div class="recommend-box">
+          <div class="recommend-list clearfix" ref="recommendList"
+               :style="{width: listWrapWidth + 'px'}">
+            <div class="recommend-item">
+              <span class="delete iconfont icon-error"></span>
+              <div class="photo">
+                <img src="./../../assets/images/portrait.jpg" alt="">
+              </div>
+              <div class="h2">CEEN.J.K</div>
+              <div class="h3">Liuqiyuaaaaaa</div>
+              <div class="button-wrapper">
+                <button>ZCD</button>
+              </div>
+              <div class="slider clearfix">
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="recommend-item">
+              <span class="delete iconfont icon-error"></span>
+              <div class="photo">
+                <img src="./../../assets/images/portrait.jpg" alt="">
+              </div>
+              <div class="h2">CEEN.J.K</div>
+              <div class="h3">Liuqiyuaaaaaa</div>
+              <div class="button-wrapper">
+                <button>ZCD</button>
+              </div>
+              <div class="slider clearfix">
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="recommend-item">
+              <span class="delete iconfont icon-error"></span>
+              <div class="photo">
+                <img src="./../../assets/images/portrait.jpg" alt="">
+              </div>
+              <div class="h2">CEEN.J.K</div>
+              <div class="h3">Liuqiyuaaaaaa</div>
+              <div class="button-wrapper">
+                <button>ZCD</button>
+              </div>
+              <div class="slider clearfix">
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="recommend-item">
+              <span class="delete iconfont icon-error"></span>
+              <div class="photo">
+                <img src="./../../assets/images/portrait.jpg" alt="">
+              </div>
+              <div class="h2">CEEN.J.K</div>
+              <div class="h3">Liuqiyuaaaaaa</div>
+              <div class="button-wrapper">
+                <button>ZCD</button>
+              </div>
+              <div class="slider clearfix">
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="recommend-item">
+              <span class="delete iconfont icon-error"></span>
+              <div class="photo">
+                <img src="./../../assets/images/portrait.jpg" alt="">
+              </div>
+              <div class="h2">CEEN.J.K</div>
+              <div class="h3">Liuqiyuaaaaaa</div>
+              <div class="button-wrapper">
+                <button>ZCD</button>
+              </div>
+              <div class="slider clearfix">
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="share-list">
+        <div class="share-item" v-for="(item, index) in dataList" :key="index">
+          <div class="share-header">
+            <div class="s-logo">
+              <img src="./../../assets/images/portrait.jpg" alt="">
+            </div>
+            <div class="s-desc-wrapper">
+              <div class="s-desc">
+                <div class="s-info">
+                  <p class="username">{{item.username}}</p>
+                  <p class="tag">{{item.tags}}</p>
+                </div>
+                <div class="s-other">
+                  <span class="share-txt">分享</span>
+                  <span class="icon iconfont icon-gengduo"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="share-img-list clearfix">
+            <div class="share-img-item">
+              <img src="../../assets/images/pros.png" alt="">
+            </div>
+            <div class="share-img-item">
+              <img src="../../assets/images/pros.png" alt="">
+            </div>
+            <div class="share-img-item">
+              <img src="../../assets/images/pros.png" alt="">
+            </div>
+            <div class="share-img-item">
+              <img src="../../assets/images/pros.png" alt="">
+            </div>
+            <div class="share-img-item">
+              <img src="../../assets/images/pros.png" alt="">
+            </div>
+            <div class="share-img-item">
+              <img src="../../assets/images/pros.png" alt="">
+            </div>
+          </div>
+          <div class="share-footer">
+            <div class="comment">
+              <div class="give-the-thumbs">
+                <!-- 已点赞 -->
+                <span v-if="!item.hasPoint" class="icon iconfont icon-xinyi"></span>
+                <!-- 未点赞 -->
+                <span v-else class="icon iconfont icon-xin"></span>
+                <span class="number">2323</span>
+              </div>
+              <div class="discuss" >
+                <div class="tooltip" ref="tooltip">
+                  <div class="tooltip-box">
+                    <div class="fabulous" @click="fabulous(item, index)" ref="zan">
+                      <span class="icons iconfont icon-zan icon-xinyi"></span>
+                      <span v-if="!item.hasPoint">赞</span>
+                      <span v-else>取消</span>
+                    </div>
+                    <div class="commentary" @click="commentary(index)">
+                      <span class="icons iconfont icon-pinglun"></span>
+                      <span>评论</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="icon iconfont icon-iconpinglun" @click="showDiscuss"
+                      ref="pinglun"></span>
+              </div>
+            </div>
+            <div class="describe">
+              <p>
+                ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
+                undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
+                angchundiZhangchundiZhangchundiZhangchundi
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="recommend">
+        <header class="title">Zhangchundi</header>
+        <div class="recommend-box" id="button-list">
+          <div class="recommend-list clearfix" ref="recommendListButton"
+               :style="{width: buttonListWrapWidth + 'px'}">
+            <div class="recommend-button">ZCD</div>
+            <div class="recommend-button">ZHANGCHUNDI</div>
+            <div class="recommend-button">ZHANGCHUNDI</div>
+            <div class="recommend-button">ZHANGCHUNDI</div>
+            <div class="recommend-button">ZHANGCHUNDI</div>
+            <div class="recommend-button">ZCD</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="recommend">
-      <header class="title">Zhangchundi</header>
-      <div class="recommend-box" id="button-list">
-        <div class="recommend-list clearfix" ref="recommendListButton"
-             :style="{width: buttonListWrapWidth + 'px'}">
-          <div class="recommend-button">ZCD</div>
-          <div class="recommend-button">ZHANGCHUNDI</div>
-          <div class="recommend-button">ZHANGCHUNDI</div>
-          <div class="recommend-button">ZHANGCHUNDI</div>
-          <div class="recommend-button">ZHANGCHUNDI</div>
-          <div class="recommend-button">ZCD</div>
-          </div>
-        </div>
-      </div>
   </div>
 </template>
 
 <script>
 import BScroll from 'better-scroll';
+import Atopbar from './../../components/A-topbar';
 import { hasClass, sliverWidth } from './../../utils/utils';
 
 export default {
@@ -298,6 +302,9 @@ export default {
     const $recommendButton = document.getElementsByClassName('recommend-button');
     const $recommendListButton = this.$refs.recommendListButton;
     this.buttonListWrapWidth = sliverWidth($recommendListButton, $recommendButton) + 10;
+  },
+  components: {
+    Atopbar,
   },
   data() {
     return {
@@ -380,7 +387,7 @@ export default {
 
 <style scoped lang="scss">
   .share {
-    padding: 0 0 0.31rem 0;
+    // padding: 0 0 0.31rem 0;
   }
 
   // 分享列表

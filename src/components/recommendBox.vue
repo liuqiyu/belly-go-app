@@ -34,7 +34,7 @@
 export default {
   data() {
     return {
-      data: [1, 2, 3, 4, 5],
+      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
     };
   },
   mounted() {
@@ -48,7 +48,7 @@ export default {
         $recommendBox[index].classList.add('hide');
       }, 300);
     },
-  }
+  },
 };
 </script>
 
@@ -64,7 +64,7 @@ export default {
         .recommend-item {
           position: relative;
           border-radius: 4px;
-          margin: 0.05rem;
+          margin: 0.1rem;
           background: #fff;
           text-align: center;
           padding: 0.15rem 0.1rem;

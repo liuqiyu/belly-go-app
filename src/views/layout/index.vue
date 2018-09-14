@@ -1,18 +1,19 @@
 <template>
   <div class="layout">
-    <Atopbar></Atopbar>
-    <div class="content-wrapper">
-      <div class="scroll-wrapper">
-        <router-view></router-view>
-      </div>
-    </div>
-    <div class="criticism">
-      <div data-v-4337c03f="" class="criticism_con">
-        <textarea name="" id="" v-model="textValue"></textarea>
-        <span v-if="textValue.length === 0" class="btn disabled">发送</span>
-        <span v-if="textValue.length > 0" class="btn">发送</span>
-      </div>
-    </div>
+    <!--<Atopbar></Atopbar>-->
+
+      <router-view></router-view>
+      <!--<div class="scroll-wrapper">-->
+      <!--</div>-->
+    <!--<div class="content-wrapper">-->
+    <!--</div>-->
+    <!--<div class="criticism">-->
+      <!--<div data-v-4337c03f="" class="criticism_con">-->
+        <!--<textarea name="" id="" v-model="textValue"></textarea>-->
+        <!--<span v-if="textValue.length === 0" class="btn disabled">发送</span>-->
+        <!--<span v-if="textValue.length > 0" class="btn">发送</span>-->
+      <!--</div>-->
+    <!--</div>-->
     <Anavbar></Anavbar>
   </div>
 </template>
@@ -30,10 +31,10 @@ export default {
     };
   },
   mounted() {
-    const wrapper = document.querySelector('.content-wrapper');
-    this.scroll = new BScroll(wrapper, {
-      click: true,
-    });
+    // const wrapper = document.querySelector('.content-wrapper');
+    // this.scroll = new BScroll(wrapper, {
+    //   click: true,
+    // });
   },
   components: {
     Atopbar,
@@ -46,6 +47,7 @@ export default {
   .layout {
     height: 100%;
     .content-wrapper {
+      position: relative;
       height: 100%;
       padding: 0.45rem 0 0.51rem 0;
       .scroll-wrapper {

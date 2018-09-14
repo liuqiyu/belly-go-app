@@ -6,7 +6,11 @@
           <span class="iconfont icon-sousuo" ></span>
         </slot>
       </div>
-      <div class="centerbar">Belly Go</div>
+      <div class="centerbar">
+        <slot name="center">
+          Belly Go
+        </slot>
+      </div>
       <div class="rightbar">
         <slot name="right">
           <span class="iconfont icon-gouwu"></span>

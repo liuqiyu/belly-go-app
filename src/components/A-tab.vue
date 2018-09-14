@@ -25,12 +25,12 @@ export default {
 <style scoped lang="scss">
   @import './../assets/css/main';
   .a-tab {
-    display: inline-block;
     ul li {
       float: left;
-      padding: 0.06rem 0.2rem;
+      padding: 0.04rem 0.2rem;
       border: 1px solid #dcdfe6;
       border-right: none;
+      font-size: 0.12rem;
       &.router-active {
         background: $main-color;
         border-color: $main-color;
