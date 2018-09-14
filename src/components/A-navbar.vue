@@ -2,13 +2,13 @@
   <div class="a-navbar">
     <div class="nav-item">
       <router-link to="/share">
-        <span class="icon iconfont icon-ren"></span>
+        <span class="icon iconfont icon-pengyouquan"></span>
         <p class="title">动态</p>
       </router-link>
     </div>
     <div class="nav-item">
       <router-link to="/follow">
-        <span class="icon iconfont icon-icon--"></span>
+        <span class="icon iconfont icon-tuijian1"></span>
         <p class="title">推荐</p>
       </router-link>
     </div>
@@ -18,7 +18,7 @@
     </div>
     <div class="nav-item">
       <router-link to="/user">
-        <span class="icon iconfont icon-biaoqian"></span>
+        <span class="icon iconfont icon-weibiaoti-_huabanfuben"></span>
         <p class="title">我的</p>
       </router-link>
     </div>
