@@ -21,7 +21,6 @@ export default new Router({
       children: [
         {
           path: '',
-          name: 'share',
           component: Share,
         },
         {
@@ -37,6 +36,7 @@ export default new Router({
         {
           path: 'follow',
           component: Follow,
+          redirect: '/follow/recommend',
           children: [
             {
               path: 'recommend',

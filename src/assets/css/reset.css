@@ -52,3 +52,7 @@ input {
   outline: none;
   padding: 0 0.15rem;
 }
+
+.hide {
+  display: none;
+}

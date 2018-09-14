@@ -1,277 +1,14 @@
 <template>
   <div class="recommend-content">
     <div class="recommend-list clearfix" ref="recommendList">
-      <div class="recommend-box">
+      <div class="recommend-box" v-for="(item, index) in data"
+           :key="index" @click="deleteBox(index)">
         <div class="recommend-item">
           <span class="delete iconfont icon-error"></span>
           <div class="photo">
             <img src="./../assets/images/portrait.jpg" alt="">
           </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
-          <div class="button-wrapper">
-            <button>点击关注</button>
-          </div>
-          <div class="slider clearfix">
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-            <div class="slider-item">
-              <img src="./../assets/images/pros.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="recommend-box">
-        <div class="recommend-item">
-          <span class="delete iconfont icon-error"></span>
-          <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
-          </div>
-          <div class="h2">CEEN.J.K</div>
+          <div class="h2">CEEN.J.K{{item}}</div>
           <div class="h3">Liuqiyuaaaaaa</div>
           <div class="button-wrapper">
             <button>点击关注</button>
@@ -295,7 +32,23 @@
 
 <script>
 export default {
-    name: "recommendBox"
+  data() {
+    return {
+      data: [1, 2, 3, 4, 5],
+    };
+  },
+  mounted() {
+    // this.deleteBox();
+  },
+  methods: {
+    deleteBox(index) {
+      const $recommendBox = document.getElementsByClassName('recommend-box');
+      $recommendBox[index].classList.add('animated', 'zoomOut');
+      setTimeout(() => {
+        $recommendBox[index].classList.add('hide');
+      }, 300);
+    },
+  }
 };
 </script>
 
@@ -307,6 +60,7 @@ export default {
       .recommend-box {
         width: 50%;
         float: left;
+        transition: all .7s linear;
         .recommend-item {
           position: relative;
           border-radius: 4px;
@@ -331,8 +85,8 @@ export default {
             }
           }
           .photo {
-            width: 0.51rem;
-            height: 0.51rem;
+            width: 0.75rem;
+            height: 0.75rem;
             overflow: hidden;
             border-radius: 50%;
             margin: 0 auto;
@@ -342,12 +96,12 @@ export default {
             }
           }
           .h2 {
-            font-size: 0.16rem;
+            font-size: 0.14rem;
             color: #000;
             margin-top: 0.05rem;
           }
           .h3 {
-            font-size: 0.14rem;
+            font-size: 0.12rem;
             color: #999;
             margin-top: 0.05rem;
           }

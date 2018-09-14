@@ -4,7 +4,6 @@
       <Atab :list="tabList"></Atab>
     </header>
     <router-view></router-view>
-    <RecommendBox></RecommendBox>
   </div>
 </template>
 
