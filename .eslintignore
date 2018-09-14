@@ -1,6 +1,5 @@
 /build/
 /config/
-/dist/
 /*.js
 /src/router/index.js
 /src/utils/*.js
