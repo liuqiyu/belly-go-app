@@ -37,14 +37,6 @@ export default {
 <style scoped lang="scss">
   .layout {
     height: 100%;
-    .content-wrapper {
-      position: relative;
-      height: 100%;
-      padding: 0.45rem 0 0.51rem 0;
-      .scroll-wrapper {
-        padding: 0 0 0.7rem 0;
-      }
-    }
     .criticism {
       transition: top 2s;
       -webkit-transition: top 2s;

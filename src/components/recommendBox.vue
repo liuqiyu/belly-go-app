@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     deleteBox(index) {
-      const $el = document.querySelector('.recommend-box');
+      const $el = document.querySelectorAll('.recommend-box');
       $el[index].classList.add('fadeOut');
       setTimeout(() => {
         this.data.splice(index, 1);

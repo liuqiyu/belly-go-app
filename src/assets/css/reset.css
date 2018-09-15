@@ -42,15 +42,34 @@ html, body {
 }
 
 
-input {
+.hide {
+  display: none;
+}
+
+
+/*******************/
+
+.content-wrapper {
+  position: relative;
+  height: 100%;
+  padding: 0.45rem 0 0.51rem 0;
+}
+
+.l-select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: #f1f1f1;
+  padding: 0 0.15rem;
+}
+
+
+.l-input {
   width: 100%;
   height: 100%;
   border: none;
   background: #f1f1f1;
   outline: none;
   padding: 0 0.15rem;
-}
-
-.hide {
-  display: none;
 }

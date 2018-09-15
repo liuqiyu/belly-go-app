@@ -9,32 +9,34 @@
     <div class="l-body">
       <div class="form">
         <div class="f-item">
-          <input type="text" v-model=value>
+          <input class="l-input" type="text" v-model="form.username" placeholder="请输入用户名">
         </div>
         <div class="f-item">
-          <input type="text" v-model=value>
+          <input class="l-input" type="password" v-model="form.password" placeholder="请输入密码">
         </div>
         <div class="f-item">
-          <mt-button style="width: 100%" size="small" type="primary">登录</mt-button>
+          <input class="l-input" type="password" v-model="form.rePassword" placeholder="请确认密码">
+        </div>
+        <div class="f-item">
+          <select class="l-select" v-model="form.gender">
+            <option value="0">未知</option>
+            <option value="1">男</option>
+            <option value="2">女</option>
+          </select>
+        </div>
+        <div class="f-item">
+          <mt-button style="width: 100%" size="small" type="primary" @click="submit">注册</mt-button>
         </div>
         <div class="f-item help">
-         <router-link to="/register">立即注册</router-link>
-         <span>忘记密码？</span>
+         <span>注册即视为同意《使用协议》</span>
         </div>
-      </div>
-    </div>
-    <div class="l-other-login">
-      <h3>其他登录</h3>
-      <div class="other">
-        <div class="other-item">1</div>
-        <div class="other-item">2</div>
-        <div class="other-item">3</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import user from './../../../api/user';
 import Atopbar from './../../../components/A-topbar';
 
 export default {
@@ -43,8 +45,20 @@ export default {
   },
   data() {
     return {
-      value: 123,
+      form: {
+        username: '',
+        password: '',
+        rePassword: '',
+        gender: 0,
+      },
     };
+  },
+  methods: {
+    submit() {
+      user.register(this.form).then((res) => {
+        console.log(res);
+      });
+    },
   },
 };
 </script>
@@ -69,29 +83,6 @@ export default {
           display: flex;
           justify-content: space-between;
           color: #242424;
-        }
-      }
-    }
-    .l-other-login {
-      width: 100%;
-      position: fixed;
-      bottom: 0.3rem;
-      h3 {
-        font-size: 0.12rem;
-        text-align: center;
-        margin-bottom: 0.2rem;
-        color: #bababa;
-      }
-      .other {
-        display: flex;
-        justify-content: space-around;
-        .other-item {
-          width: 0.4rem;
-          height: 0.4rem;
-          background: $main-color;
-          border-radius: 50%;
-          text-align: center;
-          line-height: 0.4rem;
         }
       }
     }

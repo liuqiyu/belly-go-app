@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 const Login = r => require.ensure([], () => r(require('@/views/admin/login/login')), 'login');
+const Register = r => require.ensure([], () => r(require('@/views/admin/register/index')), 'register');
 const Layout = r => require.ensure([], () => r(require('@/views/layout')), 'layout');
 
 const Share = r => require.ensure([], () => r(require('@/views/share')), 'share');
@@ -9,6 +10,7 @@ const Recommend = r => require.ensure([], () => r(require('@/views/follow/recomm
 const Attention = r => require.ensure([], () => r(require('@/views/follow/attention')), 'attention');
 const Cart = r => require.ensure([], () => r(require('@/views/cart')), 'cart');
 const User = r => require.ensure([], () => r(require('@/views/user')), 'user');
+const Product = r => require.ensure([], () => r(require('@/views/product')), 'product');
 
 Vue.use(Router);
 
@@ -59,9 +61,19 @@ export default new Router({
       ],
     },
     {
+      path: '/product/:id',
+      name: 'product',
+      component: Product,
+    },
+    {
       path: '/login',
       name: 'login',
       component: Login,
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register,
     },
   ],
 });
