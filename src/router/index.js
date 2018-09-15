@@ -4,10 +4,11 @@ const Login = r => require.ensure([], () => r(require('@/views/admin/login/login
 const Layout = r => require.ensure([], () => r(require('@/views/layout')), 'layout');
 
 const Share = r => require.ensure([], () => r(require('@/views/share')), 'share');
-const User = r => require.ensure([], () => r(require('@/views/user')), 'user');
 const Follow = r => require.ensure([], () => r(require('@/views/follow')), 'follow');
 const Recommend = r => require.ensure([], () => r(require('@/views/follow/recommend')), 'recommend');
 const Attention = r => require.ensure([], () => r(require('@/views/follow/attention')), 'attention');
+const Cart = r => require.ensure([], () => r(require('@/views/cart')), 'cart');
+const User = r => require.ensure([], () => r(require('@/views/user')), 'user');
 
 Vue.use(Router);
 
@@ -29,11 +30,6 @@ export default new Router({
           component: Share,
         },
         {
-          path: 'user',
-          name: 'user',
-          component: User,
-        },
-        {
           path: 'follow',
           component: Follow,
           redirect: '/follow/recommend',
@@ -49,6 +45,16 @@ export default new Router({
               component: Attention,
             },
           ],
+        },
+        {
+          path: 'cart',
+          name: 'cart',
+          component: Cart,
+        },
+        {
+          path: 'user',
+          name: 'user',
+          component: User,
         },
       ],
     },

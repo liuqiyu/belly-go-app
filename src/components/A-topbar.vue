@@ -8,7 +8,7 @@
       </div>
       <div class="centerbar">
         <slot name="center">
-          Belly Go
+          乐购网
         </slot>
       </div>
       <div class="rightbar">

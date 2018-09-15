@@ -13,8 +13,10 @@
       </router-link>
     </div>
     <div class="nav-item">
-      <span class="icon iconfont icon-qiehuanneirong"></span>
-      <p class="title">导航3</p>
+      <router-link to="/cart">
+        <span class="icon iconfont icon-gouwu"></span>
+        <p class="title">购物车</p>
+      </router-link>
     </div>
     <div class="nav-item">
       <router-link to="/user">
