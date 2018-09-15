@@ -73,3 +73,22 @@ html, body {
   outline: none;
   padding: 0 0.15rem;
 }
+
+.l-button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #f1f1f1;
+  outline: none;
+  padding: 0 0.15rem;
+  color: #fff;
+}
+
+.l-button.primary {
+  background: #00aaa4;
+}
+
+.l-button.primary:active {
+  opacity: 0.8;
+}
+

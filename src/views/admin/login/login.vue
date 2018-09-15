@@ -61,7 +61,7 @@ export default {
       .form {
         .f-item {
           width: 100%;
-          height: 0.35rem;
+          height: 0.4rem;
           margin-bottom: 0.2rem;
         }
         .help {

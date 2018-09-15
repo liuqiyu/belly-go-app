@@ -25,7 +25,8 @@
           </select>
         </div>
         <div class="f-item">
-          <mt-button style="width: 100%" size="small" type="primary" @click="submit">注册</mt-button>
+          <!--<mt-button style="width: 100%" size="small" type="primary" @click="submit">注册</mt-button>-->
+          <button class="l-button primary" @click="submit">注册</button>
         </div>
         <div class="f-item help">
          <span>注册即视为同意《使用协议》</span>
@@ -75,7 +76,7 @@ export default {
       .form {
         .f-item {
           width: 100%;
-          height: 0.35rem;
+          height: 0.4rem;
           margin-bottom: 0.2rem;
         }
         .help {
