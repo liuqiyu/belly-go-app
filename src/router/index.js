@@ -10,6 +10,7 @@ const Recommend = r => require.ensure([], () => r(require('@/views/follow/recomm
 const Attention = r => require.ensure([], () => r(require('@/views/follow/attention')), 'attention');
 const Cart = r => require.ensure([], () => r(require('@/views/cart')), 'cart');
 const User = r => require.ensure([], () => r(require('@/views/user')), 'user');
+const Info = r => require.ensure([], () => r(require('@/views/user/info/info')), 'info');
 const Product = r => require.ensure([], () => r(require('@/views/product')), 'product');
 
 Vue.use(Router);
@@ -57,6 +58,13 @@ export default new Router({
           path: 'user',
           name: 'user',
           component: User,
+          children: [
+            {
+              path: 'info',
+              name: 'info',
+              component: Info,
+            },
+          ],
         },
       ],
     },

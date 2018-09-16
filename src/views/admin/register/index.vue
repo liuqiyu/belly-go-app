@@ -3,7 +3,7 @@
     <Atopbar>
       <div slot="left"></div>
       <div slot="right">
-        <span class="iconfont icon-error"></span>
+        <router-link to="/login" class="iconfont icon-error"></router-link>
       </div>
     </Atopbar>
     <div class="l-body">
@@ -25,7 +25,6 @@
           </select>
         </div>
         <div class="f-item">
-          <!--<mt-button style="width: 100%" size="small" type="primary" @click="submit">注册</mt-button>-->
           <button class="l-button primary" @click="submit">注册</button>
         </div>
         <div class="f-item help">
@@ -56,8 +55,8 @@ export default {
   },
   methods: {
     submit() {
-      user.register(this.form).then((res) => {
-        console.log(res);
+      user.register(this.form).then(() => {
+        // console.log(res);
       });
     },
   },

@@ -3,19 +3,19 @@
     <Atopbar>
       <div slot="left"></div>
       <div slot="right">
-        <span class="iconfont icon-error"></span>
+        <a class="iconfont icon-error" @click="goBack"></a>
       </div>
     </Atopbar>
     <div class="l-body">
       <div class="form">
         <div class="f-item">
-          <input type="text" v-model=value>
+          <input class="l-input" type="text" v-model="form.username" placeholder="请输入用户名">
         </div>
         <div class="f-item">
-          <input type="text" v-model=value>
+          <input class="l-input" type="password" v-model="form.password" placeholder="请输入密码">
         </div>
         <div class="f-item">
-          <mt-button style="width: 100%" size="small" type="primary">登录</mt-button>
+          <mt-button style="width: 100%" size="small" type="primary" @click="submit">登录</mt-button>
         </div>
         <div class="f-item help">
          <router-link to="/register">立即注册</router-link>
@@ -43,8 +43,23 @@ export default {
   },
   data() {
     return {
-      value: 123,
+      form: {
+        username: '',
+        password: '',
+      },
     };
+  },
+  methods: {
+    submit() {
+      this.$store.dispatch('login', this.form).then(() => {
+          this.$router.go(-1);
+      }).catch(() => {
+          // alert(err);
+      });
+    },
+    goBack() {
+      this.$router.go(-1);
+    },
   },
 };
 </script>

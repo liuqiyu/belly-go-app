@@ -7,6 +7,8 @@ const path = {
   login: '/user/login',
   // 注销
   logout: '/user/logout',
+  // 上传头像
+  uploadPhoto: '/user/uploadPhoto',
 };
 
 const register = form => api.post(path.register, form, {
@@ -43,8 +45,25 @@ const login = form => api.post(path.login, form, {
 
 const logout = () => api.get(path.logout);
 
+const uploadPhoto = form => api.post(path.uploadPhoto, form, {
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+  transformRequest: [(data) => {
+    // Do whatever you want to transform the data
+    let ret = '';
+    const keys = Object.keys(data);
+    keys.forEach((key) => {
+      ret += `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}&`;
+    });
+    const newRet = ret.slice(0, ret.length - 1);
+    return newRet;
+  }],
+});
+
 export default {
   register,
   login,
   logout,
+  uploadPhoto,
 };

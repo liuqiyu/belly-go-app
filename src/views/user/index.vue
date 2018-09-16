@@ -1,29 +1,20 @@
 <template>
-  <div class="content-wrapper">
-    <Atopbar>
-      <span slot="left"></span>
-      <span slot="center">刘岂宇</span>
-      <span slot="right">
-          <span class="iconfont icon-shezhi"></span>
-        </span>
-    </Atopbar>
+  <div class="">
     <div class="user">
-      <div class="u-top">
-        <div class="img">
-          <img src="./../../assets/images/portrait.jpg" alt="">
-        </div>
-        <div class="info">
-          <div class="info-cell">
-            <span><span class="icon iconfont icon-tuandui"></span> 刘岂宇</span>
-            <span>2<span class="icon-g iconfont icon-you1"></span></span>
+      <div class="u-top" >
+        <router-link to="/user/info" class="edit iconfont icon-shezhi"></router-link>
+        <div class="user_bg"></div>
+        <div class="u-top-info">
+          <div class="img">
+            <img src="./../../assets/images/portrait.jpg" alt=""
+                 v-if="this.$store.getters.username">
+            <img src="./../../assets/images/not-login.png" alt="" v-else>
           </div>
-          <div class="info-cell">
-            <span><span class="icon iconfont icon-xin1"></span> 刘岂宇</span>
-            <span>2<span class="icon-g iconfont icon-you1"></span></span>
-          </div>
-          <div class="info-cell">
-            <span><span class="icon iconfont icon-gouwu"></span> 刘岂宇</span>
-            <span>2<span class="icon-g iconfont icon-you1"></span></span>
+          <div class="info">
+            <div class="info-cell">
+              <span v-if="this.$store.getters.username">{{this.$store.getters.username}}</span>
+              <router-link to="/login" class="not-login" v-else>登录 / 注册</router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -47,15 +38,18 @@
         </div>
       </div>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Atopbar from './../../components/A-topbar';
+import Info from './info/info';
 
 export default {
   components: {
     Atopbar,
+    Info,
   },
   data() {
     return {
@@ -66,42 +60,54 @@ export default {
 
 <style scoped lang="scss">
   .user {
-    padding: 0.1rem 0 0.2rem 0;
     .u-top {
-      display: flex;
-      padding: 0.2rem;
-      .img {
-        overflow: hidden;
-        flex: none;
-        width: 1.22rem;
-        height: 1.22rem;
-        border-radius: 50%;
-        >img {
-          width: 100%;
-        }
+      position: relative;
+      height: 1.8rem;
+      overflow: hidden;
+      .edit {
+        position: absolute;
+        top: 0.1rem;
+        right: 0.1rem;
+        font-size: 0.18rem;
+        color: #333;
+        z-index: 100;
       }
-      .info {
-        margin-left: 0.2rem;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        .info-cell {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          line-height: 0.22rem;
-          .icon {
-            font-size: 0.18rem;
-            color: #0eb3a7;
-            font-weight: bold;
-            margin-right: 0.1rem;
+      .user_bg {
+        width: 100%;
+        height: 100%;
+        background: url("./../../assets/images/user_bg2.jpg");
+        background-size: contain;
+        filter:blur(3px);
+      }
+      .u-top-info {
+        position: absolute;
+        left:50%;
+        top:50%;
+        -webkit-transform:translate(-50%,-50%);
+        transform:translate(-50%,-50%);
+        .img {
+          overflow: hidden;
+          width: 0.8rem;
+          height: 0.8rem;
+          border: 1px solid #e1e1e1;
+          border-radius: 50%;
+          margin: 0 auto;
+          >img {
+            width: 100%;
           }
+        }
+        .info {
+          text-align: center;
+          margin-top: 0.1rem;
+          color: #333;
+          font-size: 0.14rem;
+          font-weight: bold;
         }
       }
     }
     .u-content {
+      border-top: 1px solid #e1e1e1;
+      border-bottom: 1px solid #e1e1e1;
       .u-content-nav {
         background: #f1f1f1;
         height: 0.43rem;
