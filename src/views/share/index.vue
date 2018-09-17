@@ -281,8 +281,8 @@ import { hasClass, sliverWidth } from './../../utils/utils';
 
 export default {
   mounted() {
-    const wrapper = document.querySelector('.recommend-box');
-    const wrapper1 = document.querySelector('#button-list');
+//    const wrapper = document.querySelector('.recommend-box');
+//    const wrapper1 = document.querySelector('#button-list');
     const $recommendItem = document.getElementsByClassName('recommend-item');
     const $recommendList = this.$refs.recommendList;
     this.listWrapWidth = sliverWidth($recommendList, $recommendItem) + 10;

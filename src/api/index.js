@@ -22,9 +22,8 @@ instance.interceptors.request.use((request) => {
 }, error => Promise.reject(error));
 
 // 响应拦截器
-instance.interceptors.response.use((response) => {
-    return response;
-  }, error =>
+instance.interceptors.response.use(response => response
+  , error =>
     // 对响应错误做点什么
     Promise.reject(error),
 );

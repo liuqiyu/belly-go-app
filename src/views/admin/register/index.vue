@@ -3,7 +3,7 @@
     <Atopbar>
       <div slot="left"></div>
       <div slot="right">
-        <span class="iconfont icon-error"></span>
+        <router-link to="/login" class="iconfont icon-error"></router-link>
       </div>
     </Atopbar>
     <div class="l-body">
@@ -55,8 +55,8 @@ export default {
   },
   methods: {
     submit() {
-      user.register(this.form).then((res) => {
-        console.log(res);
+      user.register(this.form).then(() => {
+        // console.log(res);
       });
     },
   },

@@ -40,10 +40,14 @@ module.exports = {
         'e' // for e.returnvalue
       ]
     }],
+    'indent': 'off',
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {
       optionalDependencies: ['test/unit/index.js']
     }],
+    // 统一换行符，"\n" unix(for LF) and "\r\n" for windows(CRLF)，默认unix
+    // off或0: 禁用规则
+    'linebreak-style': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }

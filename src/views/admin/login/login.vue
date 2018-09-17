@@ -3,7 +3,7 @@
     <Atopbar>
       <div slot="left"></div>
       <div slot="right">
-        <span class="iconfont icon-error"></span>
+        <a class="iconfont icon-error" @click="goBack"></a>
       </div>
     </Atopbar>
     <div class="l-body">
@@ -12,10 +12,10 @@
           <input class="l-input" type="text" v-model="form.username" placeholder="请输入用户名">
         </div>
         <div class="f-item">
-          <input class="l-input" type="text" v-model="form.password" placeholder="请输入密码">
+          <input class="l-input" type="password" v-model="form.password" placeholder="请输入密码">
         </div>
         <div class="f-item">
-          <button class="l-button primary" @click="submit">注册</button>
+          <button class="l-button primary" @click="submit">登录</button>
         </div>
         <div class="f-item help">
          <router-link to="/register">立即注册</router-link>
@@ -52,9 +52,14 @@ export default {
   },
   methods: {
     submit() {
-      user.login(this.form).then((res) => {
-        console.log(res);
+      this.$store.dispatch('login', this.form).then(() => {
+          this.$router.go(-1);
+      }).catch(() => {
+          // alert(err);
       });
+    },
+    goBack() {
+      this.$router.go(-1);
     },
   },
 };
@@ -85,8 +90,7 @@ export default {
     }
     .l-other-login {
       width: 100%;
-      position: fixed;
-      bottom: 0.3rem;
+      margin-top: 2rem;
       h3 {
         font-size: 0.12rem;
         text-align: center;
