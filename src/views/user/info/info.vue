@@ -45,6 +45,7 @@
 
 <script>
 import Atopbar from './../../../components/A-topbar';
+import user from './../../../api/user';
 
 export default {
   components: {
@@ -56,6 +57,9 @@ export default {
       const data = new FormData();
       data.append('file', upload.files[0]);
       console.log(data);
+      user.uploadPhoto(data).then((res) => {
+        console.log(res);
+      });
     },
     goBack() {
       this.$router.go(-1);
