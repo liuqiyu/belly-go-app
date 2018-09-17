@@ -25,7 +25,6 @@
           </select>
         </div>
         <div class="f-item">
-          <!--<mt-button style="width: 100%" size="small" type="primary" @click="submit">注册</mt-button>-->
           <button class="l-button primary" @click="submit">注册</button>
         </div>
         <div class="f-item help">

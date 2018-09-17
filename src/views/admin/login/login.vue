@@ -9,13 +9,13 @@
     <div class="l-body">
       <div class="form">
         <div class="f-item">
-          <input type="text" v-model=value>
+          <input class="l-input" type="text" v-model="form.username" placeholder="请输入用户名">
         </div>
         <div class="f-item">
-          <input type="text" v-model=value>
+          <input class="l-input" type="text" v-model="form.password" placeholder="请输入密码">
         </div>
         <div class="f-item">
-          <mt-button style="width: 100%" size="small" type="primary">登录</mt-button>
+          <button class="l-button primary" @click="submit">注册</button>
         </div>
         <div class="f-item help">
          <router-link to="/register">立即注册</router-link>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import user from './../../../api/user';
 import Atopbar from './../../../components/A-topbar';
 
 export default {
@@ -43,8 +44,18 @@ export default {
   },
   data() {
     return {
-      value: 123,
+      form: {
+        username: '',
+        password: '',
+      },
     };
+  },
+  methods: {
+    submit() {
+      user.login(this.form).then((res) => {
+        console.log(res);
+      });
+    },
   },
 };
 </script>
