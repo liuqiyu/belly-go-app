@@ -10,10 +10,12 @@
     <div class="publish">
       <div class="form">
         <div class="textarea">
-          <mt-field placeholder="请输入文字..." type="textarea" rows="4" v-model="introduction"></mt-field>
+          <mt-field placeholder="请输入文字..." type="textarea" rows="4" v-model="form.txt"></mt-field>
         </div>
         <div class="img-column">
-          <div class="img-column-item"></div>
+          <div class="img-column-item" v-for="(item, index) in form.imgList" :key="index">
+            <img :src="item.url" :alt="item.name">
+          </div>
           <div class="img-column-item add">
             <span class="iconfont icon-jia1"></span>
             <div class="upload-input">
@@ -42,22 +44,28 @@ export default {
   },
   data() {
     return {
-      introduction: '',
+      form: {
+        txt: '',
+        imgList: [],
+      }
     };
   },
   methods: {
     publish() {
-      alert(3213);
+      console.log(this.form);
     },
     upload() {
       const upload = this.$refs.upload;
       const data = new FormData();
-      console.log(upload.files);
       for (let i = 0; i < upload.files.length; i += 1) {
         data.append('file', upload.files[i]);
       }
       this.$store.dispatch('upload', data).then((res) => {
         console.log(res);
+        if (res.code === 200) {
+          this.$set(this.form, 'imgList', res.data);
+          console.log(this.form.imgList);
+        }
       }).catch((err) => {
         MessageBox({
           title: '温馨提示！',
@@ -93,9 +101,14 @@ export default {
           position: relative;
           width: 1rem;
           height: 1rem;
-          background: red;
           margin: 0.075rem;
           flex: none;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+          }
           &.add {
             background: rgba(0, 0, 0, .11);
             text-align: center;
