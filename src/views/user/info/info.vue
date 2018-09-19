@@ -50,14 +50,13 @@
 <script>
 import { MessageBox } from 'mint-ui';
 import Atopbar from './../../../components/A-topbar';
-import user from './../../../api/user';
 
 export default {
   computed: {
-    photoUrl(){
+    photoUrl() {
       return this.$store.state.login.user_photo;
     },
-    username(){
+    username() {
       return this.$store.state.login.username;
     },
   },
