@@ -7,6 +7,7 @@ import Vuex from 'vuex';
 import common from './common';
 import getters from './getters';
 import login from './module/login';
+import upload from './module/upload';
 
 Vue.use(Vuex);
 
@@ -15,5 +16,6 @@ export default new Vuex.Store({
   modules: {
     common,
     login,
+    upload,
   },
 });

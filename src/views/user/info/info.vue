@@ -14,13 +14,17 @@
         </div>
         <span class="label">头像</span>
         <div class="cell">
-          <span class="user-photo iconfont icon-weidenglutouxiang">
-        </span> <span class="icon iconfont icon-you"></span>
+          <div class="user-photo">
+            <img :src="photoUrl"
+                 alt="" v-if="photoUrl">
+            <img class="user-photo" src="./../../../assets/images/not-login.png" alt="" v-else>
+          </div>
+          <span class="icon iconfont icon-you"></span>
         </div>
       </div>
       <div class="info-item">
         <span class="label">用户名</span>
-        <div class="cell">头像 <span class="icon iconfont icon-you"></span></div>
+        <div class="cell">{{ username }} <span class="icon iconfont icon-you"></span></div>
       </div>
       <div class="info-item">
         <span class="label">性别</span>
@@ -44,10 +48,19 @@
 </template>
 
 <script>
+import { MessageBox } from 'mint-ui';
 import Atopbar from './../../../components/A-topbar';
 import user from './../../../api/user';
 
 export default {
+  computed: {
+    photoUrl(){
+      return this.$store.state.login.user_photo;
+    },
+    username(){
+      return this.$store.state.login.username;
+    },
+  },
   components: {
     Atopbar,
   },
@@ -56,9 +69,12 @@ export default {
       const upload = this.$refs.upload;
       const data = new FormData();
       data.append('file', upload.files[0]);
-      console.log(data);
-      user.uploadPhoto(data).then((res) => {
-        console.log(res);
+      this.$store.dispatch('updatePhoto', data).then(() => {
+      }).catch((err) => {
+        MessageBox({
+          title: '温馨提示！',
+          message: err.message,
+        });
       });
     },
     goBack() {
@@ -103,8 +119,19 @@ export default {
         .cell {
           position: relative;
           font-size: 0.14rem;
+          display: flex;
+          align-items: center;
+          color: #999;
           .user-photo {
-            font-size: 0.4rem;
+            width:0.5rem;
+            height: 0.5rem;
+            vertical-align: middle;
+            overflow: hidden;
+            border-radius: 50%;
+            img {
+              width: 100%;
+              height: 100%;
+            }
           }
           .icon {
             margin-left: 0.1rem;

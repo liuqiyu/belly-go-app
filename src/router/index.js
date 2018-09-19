@@ -12,6 +12,7 @@ const Cart = r => require.ensure([], () => r(require('@/views/cart')), 'cart');
 const User = r => require.ensure([], () => r(require('@/views/user')), 'user');
 const Info = r => require.ensure([], () => r(require('@/views/user/info/info')), 'info');
 const Product = r => require.ensure([], () => r(require('@/views/product')), 'product');
+const Publish = r => require.ensure([], () => r(require('@/views/publish')), 'publish');
 
 Vue.use(Router);
 
@@ -67,6 +68,11 @@ export default new Router({
           ],
         },
       ],
+    },
+    {
+      path: '/publish',
+      name: 'publish',
+      component: Publish,
     },
     {
       path: '/product/:id',

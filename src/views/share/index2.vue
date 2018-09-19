@@ -1,9 +1,6 @@
 <template>
   <div class="content-wrapper">
-    <Atopbar>
-      <span slot="right"><router-link to="/publish" class="iconfont icon-xiangji">
-      </router-link></span>
-    </Atopbar>
+    <Atopbar></Atopbar>
     <div class="share">
       <div class="share-list">
         <div class="share-item" v-for="(item, index) in dataList" :key="index">
@@ -62,6 +59,124 @@
                 undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
                 angchundiZhangchundiZhangchundiZhangchundi
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="recommend">
+        <header class="title">Zhangchundi</header>
+        <div class="recommend-box">
+          <div class="recommend-list clearfix" ref="recommendList"
+               :style="{width: listWrapWidth + 'px'}">
+            <div class="recommend-item">
+              <span class="delete iconfont icon-error"></span>
+              <div class="photo">
+                <img src="./../../assets/images/portrait.jpg" alt="">
+              </div>
+              <div class="h2">CEEN.J.K</div>
+              <div class="h3">Liuqiyuaaaaaa</div>
+              <div class="button-wrapper">
+                <button>ZCD</button>
+              </div>
+              <div class="slider clearfix">
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="recommend-item">
+              <span class="delete iconfont icon-error"></span>
+              <div class="photo">
+                <img src="./../../assets/images/portrait.jpg" alt="">
+              </div>
+              <div class="h2">CEEN.J.K</div>
+              <div class="h3">Liuqiyuaaaaaa</div>
+              <div class="button-wrapper">
+                <button>ZCD</button>
+              </div>
+              <div class="slider clearfix">
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="recommend-item">
+              <span class="delete iconfont icon-error"></span>
+              <div class="photo">
+                <img src="./../../assets/images/portrait.jpg" alt="">
+              </div>
+              <div class="h2">CEEN.J.K</div>
+              <div class="h3">Liuqiyuaaaaaa</div>
+              <div class="button-wrapper">
+                <button>ZCD</button>
+              </div>
+              <div class="slider clearfix">
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="recommend-item">
+              <span class="delete iconfont icon-error"></span>
+              <div class="photo">
+                <img src="./../../assets/images/portrait.jpg" alt="">
+              </div>
+              <div class="h2">CEEN.J.K</div>
+              <div class="h3">Liuqiyuaaaaaa</div>
+              <div class="button-wrapper">
+                <button>ZCD</button>
+              </div>
+              <div class="slider clearfix">
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="recommend-item">
+              <span class="delete iconfont icon-error"></span>
+              <div class="photo">
+                <img src="./../../assets/images/portrait.jpg" alt="">
+              </div>
+              <div class="h2">CEEN.J.K</div>
+              <div class="h3">Liuqiyuaaaaaa</div>
+              <div class="button-wrapper">
+                <button>ZCD</button>
+              </div>
+              <div class="slider clearfix">
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+                <div class="slider-item">
+                  <img src="./../../assets/images/pros.png" alt="">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -139,6 +254,20 @@
                 angchundiZhangchundiZhangchundiZhangchundi
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="recommend">
+        <header class="title">Zhangchundi</header>
+        <div class="recommend-box" id="button-list">
+          <div class="recommend-list clearfix" ref="recommendListButton"
+               :style="{width: buttonListWrapWidth + 'px'}">
+            <div class="recommend-button">ZCD</div>
+            <div class="recommend-button">ZHANGCHUNDI</div>
+            <div class="recommend-button">ZHANGCHUNDI</div>
+            <div class="recommend-button">ZHANGCHUNDI</div>
+            <div class="recommend-button">ZHANGCHUNDI</div>
+            <div class="recommend-button">ZCD</div>
           </div>
         </div>
       </div>

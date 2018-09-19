@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import user from './../../../api/user';
+import { MessageBox } from 'mint-ui';
 import Atopbar from './../../../components/A-topbar';
 
 export default {
@@ -53,9 +53,14 @@ export default {
   methods: {
     submit() {
       this.$store.dispatch('login', this.form).then(() => {
-          this.$router.go(-1);
-      }).catch(() => {
-          // alert(err);
+          this.$router.push({
+            path: '/share',
+          });
+      }).catch((err) => {
+        MessageBox({
+          title: '温馨提示！',
+          message: err,
+        });
       });
     },
     goBack() {

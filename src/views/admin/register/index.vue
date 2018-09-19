@@ -55,8 +55,18 @@ export default {
   },
   methods: {
     submit() {
-      user.register(this.form).then(() => {
+      user.register(this.form).then((res) => {
         // console.log(res);
+        if (res.data.code === 200) {
+          this.$router.push({
+            path: '/login',
+          });
+        } else {
+          MessageBox({
+            title: '温馨提示！',
+            message: err,
+          });
+        }
       });
     },
   },

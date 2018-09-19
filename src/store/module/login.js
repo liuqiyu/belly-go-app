@@ -33,9 +33,11 @@ const login = {
             window.sessionStorage.setItem('session_id', data.sessionID);
             window.sessionStorage.setItem('username', data.username);
             window.sessionStorage.setItem('user_gender', data.gender);
+            window.sessionStorage.setItem('user_photo', data.photo);
             commit('SET_SESSION_ID', data.sessionID);
             commit('SET_USERNAME', data.username);
             commit('SET_USER_GENDER', data.gender);
+            commit('SET_USER_PHOTO', data.photo);
             resolve(res.data.message);
           } else {
             reject(res.data.message);
@@ -50,15 +52,30 @@ const login = {
             window.sessionStorage.removeItem('session_id');
             window.sessionStorage.removeItem('username');
             window.sessionStorage.removeItem('user_gender');
+            window.sessionStorage.removeItem('user_photo');
             commit('SET_SESSION_ID', '');
             commit('SET_USERNAME', '');
             commit('SET_USER_GENDER', 0);
+            commit('SET_USER_PHOTO', null);
             resolve(res.data.message);
           } else {
             reject(res.data.message);
           }
         });
       });
+    },
+    updatePhoto({ commit }, data) {
+      return new Promise((resolve, reject) => {
+        user.uploadPhoto(data).then((res) => {
+          if (res.data.code === 200) {
+            window.sessionStorage.setItem('user_photo', res.data.data);
+            commit('SET_USER_PHOTO', res.data.data);
+            resolve(res.data);
+          } else {
+            reject(res.data);
+          }
+        });
+      })
     },
   },
 };

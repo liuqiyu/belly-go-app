@@ -2,12 +2,12 @@
   <div class="">
     <div class="user">
       <div class="u-top" >
-        <router-link to="/user/info" class="edit iconfont icon-shezhi"></router-link>
+        <span class="edit iconfont icon-shezhi" @click="edit"></span>
         <div class="user_bg"></div>
         <div class="u-top-info">
           <div class="img">
-            <img src="./../../assets/images/portrait.jpg" alt=""
-                 v-if="this.$store.getters.username">
+            <img :src="photoUrl" alt=""
+                 v-if="photoUrl">
             <img src="./../../assets/images/not-login.png" alt="" v-else>
           </div>
           <div class="info">
@@ -34,13 +34,12 @@
           </router-link>
         </ul>
         <div>
+        <transition name="router-slid" mode="out-in">
           <router-view></router-view>
+        </transition>
         </div>
       </div>
     </div>
-    <transition name="router-slid" mode="out-in">
-       <router-view></router-view>
-    </transition>
   </div>
 </template>
 
@@ -53,9 +52,27 @@ export default {
     Atopbar,
     Info,
   },
+  computed: {
+    photoUrl(){
+      return this.$store.state.login.user_photo;
+    },
+  },
   data() {
     return {
     };
+  },
+  methods: {
+    edit() {
+      if (this.$store.getters.username) {
+        this.$router.push({
+          path: '/user/info',
+        });
+      } else {
+        this.$router.push({
+          path: '/login',
+        });
+      }
+    },
   },
 };
 </script>
