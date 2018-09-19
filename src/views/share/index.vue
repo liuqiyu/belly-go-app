@@ -40,10 +40,10 @@
             <div class="comment">
               <div class="give-the-thumbs">
                 <!-- 已点赞 -->
-                <span v-if="!item.hasPoint" class="icon iconfont icon-xinyi"></span>
+                <span v-if="item.likes_num <= 0" class="icon iconfont icon-xinyi"></span>
                 <!-- 未点赞 -->
                 <span v-else class="icon iconfont icon-xin"></span>
-                <span class="number">2323</span>
+                <span class="number" >{{ item.likes_num }}</span>
               </div>
               <div class="discuss" >
                 <div class="tooltip" ref="tooltip">
