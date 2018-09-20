@@ -1,19 +1,20 @@
 <template>
   <div class="recommend-content">
     <div class="recommend-list clearfix" ref="recommendList">
-      <div class="recommend-box" v-for="(item, index) in data"
+      <div class="recommend-box" v-for="(item, index) in list"
            :data-key="item"
            :key="index">
         <div class="recommend-item">
           <span class="delete iconfont icon-error" @click="deleteBox(index)"></span>
           <span class="sort">{{ index + 1 }}</span>
           <div class="photo">
-            <img src="./../assets/images/portrait.jpg" alt="">
+            <img :src="item.photo" alt="">
           </div>
-          <div class="h2">CEEN.J.K</div>
-          <div class="h3">Liuqiyuaaaaaa</div>
+          <div class="h2">{{ item.username }}</div>
+          <div class="h3">{{ item.username }}</div>
           <div class="button-wrapper">
-            <button>点击关注</button>
+            <button class="info" @click="unsubscribe(item)" v-if="item.status">取消关注</button>
+            <button @click="attention(item)" v-else>点击关注</button>
           </div>
           <div class="slider clearfix">
             <div class="slider-item">
@@ -33,13 +34,29 @@
 </template>
 
 <script>
+import follow from './../api/follow';
+
 export default {
-  data() {
-    return {
-      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-    };
+  props: {
+    list: {
+      type: Array,
+    },
   },
   methods: {
+    attention(item) {
+      follow.attention(item.id).then((res) => {
+        if(res.data.code === 200) {
+          this.$emit('getData');
+        }
+      });
+    },
+    unsubscribe(item) {
+      follow.unsubscribe(item.id).then((res) => {
+        if(res.data.code === 200) {
+          this.$emit('getData');
+        }
+      });
+    },
     deleteBox(index) {
       const $el = document.querySelectorAll('.recommend-box');
       $el[index].classList.add('fadeOut');
@@ -102,8 +119,10 @@ export default {
             overflow: hidden;
             border-radius: 50%;
             margin: 0 auto;
+            border: 1px solid #e1e1e1;
             img {
               width: 100%;
+              height: 100%;
               vertical-align: middle;
             }
           }
@@ -132,6 +151,9 @@ export default {
               border: 0;
               outline: none;
               margin: 0 auto;
+              &.info {
+                background: #909399;
+              }
               &:active {
                 opacity: 0.8;
               }

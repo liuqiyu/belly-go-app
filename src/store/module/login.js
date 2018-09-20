@@ -6,6 +6,7 @@ import user from './../../api/user';
 const login = {
   state: {
     session_id: window.sessionStorage.getItem('session_id'),
+    user_id: window.sessionStorage.getItem('user_id'),
     username: window.sessionStorage.getItem('username'),
     user_photo: window.sessionStorage.getItem('user_photo'),
     user_gender: window.sessionStorage.getItem('user_gender'),
@@ -13,6 +14,9 @@ const login = {
   mutations: {
     SET_SESSION_ID: (state, sessionId) => {
       state.session_id = sessionId;
+    },
+    SET_USER_ID: (state, userId) => {
+      state.user_id = userId;
     },
     SET_USERNAME: (state, username) => {
       state.username = username;
@@ -31,10 +35,12 @@ const login = {
           if (res.data.code === 200) {
             const data = res.data.data;
             window.sessionStorage.setItem('session_id', data.sessionID);
+            window.sessionStorage.setItem('user_id', data.id);
             window.sessionStorage.setItem('username', data.username);
             window.sessionStorage.setItem('user_gender', data.gender);
             window.sessionStorage.setItem('user_photo', data.photo);
             commit('SET_SESSION_ID', data.sessionID);
+            commit('SET_USER_ID', data.id);
             commit('SET_USERNAME', data.username);
             commit('SET_USER_GENDER', data.gender);
             commit('SET_USER_PHOTO', data.photo);
@@ -50,10 +56,12 @@ const login = {
         user.logout().then((res) => {
           if (res.data.code === 200) {
             window.sessionStorage.removeItem('session_id');
+            window.sessionStorage.removeItem('user_id');
             window.sessionStorage.removeItem('username');
             window.sessionStorage.removeItem('user_gender');
             window.sessionStorage.removeItem('user_photo');
             commit('SET_SESSION_ID', '');
+            commit('SET_USER_ID', '');
             commit('SET_USERNAME', '');
             commit('SET_USER_GENDER', 0);
             commit('SET_USER_PHOTO', null);

@@ -11,7 +11,7 @@
         <div class="share-item" v-for="(item, index) in dataList" :key="index">
           <div class="share-header">
             <div class="s-logo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
+              <img :src="item.photo" alt="">
             </div>
             <div class="s-desc-wrapper">
               <div class="s-desc">
@@ -180,10 +180,12 @@ export default {
 
   // 分享列表
   .share-list {
-    padding: 0.12rem 0.16rem;
+    padding: 0.12rem 0;
     width: 100%;
     .share-item {
       margin-bottom: 0.3rem;
+      padding: 0 0.16rem;
+      border-bottom: 1px solid #f1f1f1;
       .share-header {
         display: flex;
         justify-content: flex-start;

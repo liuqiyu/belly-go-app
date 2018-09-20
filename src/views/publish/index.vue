@@ -82,10 +82,10 @@ export default {
       });
     },
     goAway() {
-      MessageBox({
-        title: '温馨提示',
-        message: '编辑还在继续，是否离开？',
-        showCancelButton: true
+      MessageBox.confirm('编辑还在继续，是否离开？').then(() => {
+        this.$router.push({
+          path: '/share',
+        });
       });
     },
   },

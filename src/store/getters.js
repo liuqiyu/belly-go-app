@@ -3,6 +3,7 @@
  */
 
 const getter = {
+  user_id: state => state.login.user_id,
   username: state => state.login.username,
   session_id: state => state.login.session_id,
   user_photo: state => state.login.user_photo,
