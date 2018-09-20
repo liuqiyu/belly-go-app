@@ -1,7 +1,7 @@
 <template>
   <div class="content-wrapper-no-footer">
     <Atopbar>
-      <span slot="left" class="iconfont icon-zuo"></span>
+      <span slot="left" class="iconfont icon-zuo" @click="goAway"></span>
       <span slot="center"></span>
       <span slot="right">
         <mt-button class="publish-btn" @click="publish">发表</mt-button>
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { MessageBox } from 'mint-ui';
 import Atopbar from './../../components/A-topbar';
 
 export default {
@@ -71,6 +72,13 @@ export default {
           title: '温馨提示！',
           message: err.message,
         });
+      });
+    },
+    goAway() {
+      MessageBox({
+        title: '温馨提示',
+        message: '编辑还在继续，是否离开？',
+        showCancelButton: true
       });
     },
   },
