@@ -1,8 +1,10 @@
 <template>
   <div class="content-wrapper">
     <Atopbar>
-      <span slot="right"><router-link to="/publish" class="iconfont icon-xiangji">
+      <span slot="right" v-if="this.$store.getters.username">
+        <router-link to="/publish" class="iconfont icon-xiangji">
       </router-link></span>
+      <span slot="right" v-else></span>
     </Atopbar>
     <div class="share">
       <div class="share-list">
@@ -24,19 +26,24 @@
               </div>
             </div>
           </div>
-          <div class="share-img-list clearfix">
+          <div class="share-img-list clearfix" v-if="item.image.length > 1">
+            <div class="share-img-item" v-for="(row, key) in item.image" :key="key">
+              <img :src="row.url" alt="">
+            </div>
+          </div>
+          <div class="share-img-list clearfix" v-else>
             <div class="share-img-big">
-              <img src="../../assets/images/big-img.jpg" alt="">
+              <img :src="item.image[0].url" alt="">
             </div>
           </div>
           <div class="share-footer">
             <div class="comment">
               <div class="give-the-thumbs">
                 <!-- 已点赞 -->
-                <span v-if="!item.hasPoint" class="icon iconfont icon-xinyi"></span>
+                <span v-if="item.likes_num <= 0" class="icon iconfont icon-xinyi"></span>
                 <!-- 未点赞 -->
                 <span v-else class="icon iconfont icon-xin"></span>
-                <span class="number">2323</span>
+                <span class="number" >{{ item.likes_num }}</span>
               </div>
               <div class="discuss" >
                 <div class="tooltip" ref="tooltip">
@@ -58,85 +65,7 @@
             </div>
             <div class="describe">
               <p>
-                ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
-                undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
-                angchundiZhangchundiZhangchundiZhangchundi
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="share-list">
-        <div class="share-item" v-for="(item, index) in dataList" :key="index">
-          <div class="share-header">
-            <div class="s-logo">
-              <img src="./../../assets/images/portrait.jpg" alt="">
-            </div>
-            <div class="s-desc-wrapper">
-              <div class="s-desc">
-                <div class="s-info">
-                  <p class="username">{{item.username}}</p>
-                  <p class="tag">{{item.tags}}</p>
-                </div>
-                <div class="s-other">
-                  <span class="share-txt">分享</span>
-                  <span class="icon iconfont icon-gengduo"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="share-img-list clearfix">
-            <div class="share-img-item">
-              <img src="../../assets/images/pros.png" alt="">
-            </div>
-            <div class="share-img-item">
-              <img src="../../assets/images/pros.png" alt="">
-            </div>
-            <div class="share-img-item">
-              <img src="../../assets/images/pros.png" alt="">
-            </div>
-            <div class="share-img-item">
-              <img src="../../assets/images/pros.png" alt="">
-            </div>
-            <div class="share-img-item">
-              <img src="../../assets/images/pros.png" alt="">
-            </div>
-            <div class="share-img-item">
-              <img src="../../assets/images/pros.png" alt="">
-            </div>
-          </div>
-          <div class="share-footer">
-            <div class="comment">
-              <div class="give-the-thumbs">
-                <!-- 已点赞 -->
-                <span v-if="!item.hasPoint" class="icon iconfont icon-xinyi"></span>
-                <!-- 未点赞 -->
-                <span v-else class="icon iconfont icon-xin"></span>
-                <span class="number">2323</span>
-              </div>
-              <div class="discuss" >
-                <div class="tooltip" ref="tooltip">
-                  <div class="tooltip-box">
-                    <div class="fabulous" @click="fabulous(item, index)" ref="zan">
-                      <span class="icons iconfont icon-zan icon-xinyi"></span>
-                      <span v-if="!item.hasPoint">赞</span>
-                      <span v-else>取消</span>
-                    </div>
-                    <div class="commentary" @click="commentary(index)">
-                      <span class="icons iconfont icon-pinglun"></span>
-                      <span>评论</span>
-                    </div>
-                  </div>
-                </div>
-                <span class="icon iconfont icon-iconpinglun" @click="showDiscuss"
-                      ref="pinglun"></span>
-              </div>
-            </div>
-            <div class="describe">
-              <p>
-                ZhangchundiZhangchundiZhangchundiZhangchundiZhangch
-                undiZhangchundiZhangchundiZhangchundiZhangchundiZhangchundiZh
-                angchundiZhangchundiZhangchundiZhangchundi
+                {{ item.txt }}
               </p>
             </div>
           </div>
@@ -148,6 +77,7 @@
 
 <script>
 import Atopbar from './../../components/A-topbar';
+import share from './../../api/share';
 import { hasClass, sliverWidth } from './../../utils/utils';
 
 export default {
@@ -161,6 +91,7 @@ export default {
     const $recommendButton = document.getElementsByClassName('recommend-button');
     const $recommendListButton = this.$refs.recommendListButton;
     this.buttonListWrapWidth = sliverWidth($recommendListButton, $recommendButton) + 10;
+    this.getData();
   },
   components: {
     Atopbar,
@@ -168,20 +99,7 @@ export default {
   data() {
     return {
       scroll: null,
-      dataList: [
-        {
-          username: 'Maawin1',
-          tags: '#fashion#shoose#bag',
-          pointNumber: 2200,
-          hasPoint: false,
-        },
-        {
-          username: 'Maawin2',
-          tags: '#fashion#shoose#bag',
-          pointNumber: 2200,
-          hasPoint: true,
-        },
-      ],
+      dataList: [],
       listWrapWidth: 0,
       buttonListWrapWidth: 0,
     };
@@ -237,6 +155,17 @@ export default {
       $tooltip[index].classList.remove('show');
       $criticism.style.bottom = 0;
     },
+
+    getData() {
+      share.list().then((res) => {
+        if (res.data.code === 200) {
+          this.dataList = res.data.data;
+          this.dataList.forEach((value, index) => {
+            this.$set(this.dataList[index], 'image', JSON.parse(value.image));
+          });
+        }
+      });
+    },
   },
   beforeDestroy() {
     this.scroll = null;
@@ -269,6 +198,7 @@ export default {
           flex: none;
           img {
             width: 100%;
+            height: 100%;
             vertical-align: middle;
           }
         }
@@ -320,6 +250,7 @@ export default {
             margin-right: 0;
           }
           img {
+            height: 100%;
             width: 100%;
             vertical-align: middle;
           }
@@ -407,6 +338,7 @@ export default {
       height: 3.43rem;
       overflow: hidden;
       img {
+        height: 100%;
         width: 100%;
         vertical-align: middle;
       }

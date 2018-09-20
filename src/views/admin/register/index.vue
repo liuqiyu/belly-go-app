@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { MessageBox } from 'mint-ui';
 import user from './../../../api/user';
 import Atopbar from './../../../components/A-topbar';
 
@@ -64,7 +65,7 @@ export default {
         } else {
           MessageBox({
             title: '温馨提示！',
-            message: err,
+            message: res.data.message,
           });
         }
       });

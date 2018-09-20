@@ -14,7 +14,7 @@ const login = {
             reject(res.data);
           }
         });
-      })
+      });
     },
   },
 };

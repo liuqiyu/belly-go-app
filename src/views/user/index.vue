@@ -53,7 +53,7 @@ export default {
     Info,
   },
   computed: {
-    photoUrl(){
+    photoUrl() {
       return this.$store.state.login.user_photo;
     },
   },

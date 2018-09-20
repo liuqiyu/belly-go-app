@@ -13,7 +13,7 @@
           <mt-field placeholder="请输入文字..." type="textarea" rows="4" v-model="form.txt"></mt-field>
         </div>
         <div class="img-column">
-          <div class="img-column-item" v-for="(item, index) in form.imgList" :key="index">
+          <div class="img-column-item" v-for="(item, index) in imgList" :key="index">
             <img :src="item.url" :alt="item.name">
           </div>
           <div class="img-column-item add">
@@ -38,6 +38,7 @@
 <script>
 import { MessageBox } from 'mint-ui';
 import Atopbar from './../../components/A-topbar';
+import share from './../../api/share';
 
 export default {
   components: {
@@ -45,15 +46,23 @@ export default {
   },
   data() {
     return {
+      imgList: [],
       form: {
-        txt: '',
-        imgList: [],
-      }
+        txt: null,
+        imgList: null,
+      },
     };
   },
   methods: {
     publish() {
-      console.log(this.form);
+      this.form.imgList = JSON.stringify(this.imgList);
+      share.publish(this.form).then((res) => {
+        if (res.data.code === 200) {
+          this.$router.push({
+            path: '/share',
+          });
+        }
+      });
     },
     upload() {
       const upload = this.$refs.upload;
@@ -62,10 +71,8 @@ export default {
         data.append('file', upload.files[i]);
       }
       this.$store.dispatch('upload', data).then((res) => {
-        console.log(res);
         if (res.code === 200) {
-          this.$set(this.form, 'imgList', res.data);
-          console.log(this.form.imgList);
+          this.imgList = this.imgList.concat(res.data);
         }
       }).catch((err) => {
         MessageBox({
